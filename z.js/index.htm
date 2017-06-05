@@ -1,0 +1,386 @@
+<!doctype html><!--
+
+
+	            ########*         
+	         *############*       
+	      ###################     
+	    *#####################*   
+	   #########################  
+	  ##########*     *########## 
+	 *#######*    ***    *####### 
+	 ######*   *#######*   *######
+	*####*    *###***###*    *####
+	*###*     ###*   *###     *###
+	*####*    *###***###*    *####
+	 ######*   *#######*   *######
+	 *#######*    ***    *#######*
+	  ##########*     *########## 
+	   #########################  
+	    *#####################*   
+	      ###################     
+	         *###########*        
+
+
+-->
+
+<html>
+
+<head prefix="og: http://ogp.me/ns#">
+ 
+<title>z.js &mdash; a lightweight JS lib to hide strings</title>
+
+<meta charset="utf-8"/>
+<meta name="robots" content="nosnippet,noarchive,notranslate"/>
+<meta name="author" content="Mntn&reg; c/o Benjamin Lips"/>
+
+<meta name="keywords" content="js,lib,data,magic,hide,unicode,content,string,zwnj,protection,rc4,zwj"/>
+<meta name="description" content="z.js, a lightweight JS lib to hide strings"/>
+
+
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="z.js"/>
+<meta property="og:url" content="https://mntn-dev.github.io/z.js/"/>
+<meta property="og:image" content="https://mntn-dev.github.io/z.js/z.js.png"/>
+<meta property="og:description" content="z.js, a lightweight JS lib to hide strings"/>
+
+<link href="https://mntn-dev.github.io/z.js/z.js.png" rel="image_src" type="image/png"/>
+<link rel="shortcut icon" href="favicon.ico"/>
+
+
+
+
+
+<link href="//fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet"/>
+<link href="z.css" rel="stylesheet" type="text/css"/>
+
+
+<script src="//cdn.jsdelivr.net/jquery/3/jquery.min.js"></script>
+<script src="//cdn.rawgit.com/mntn-dev/z.js/master/z.min.js"></script>
+<script src="//cdn.rawgit.com/mntn-dev/z.js/master/z-tools.js"></script>
+<!--
+				    z_ts()
+				    z_output()
+				    z_debug()
+-->
+
+
+
+
+
+<script type="text/javascript">
+/*<![CDATA[*/
+
+
+var _o,tmp,_r=0;f=true,
+chr=['#','%','/','#','*'],
+cmd=['Type','OK','OK?','Insert','Copy','MSG','Paste','Hide','Restore','Encrypt'],
+_A='00111100001000010010110100101101001011010010110100111110'.replace(/0/g,'\u200c').replace(/1/g,'\u200d'),//0.1:<!---->
+A=(Array(33).join('\u200c')+Array(33).join('\u200d'));//0.2
+
+
+function log(){$('#log').html(((arguments[1]&&f&&!(f=!1))?('Yay!1 Length: '+$('#content').text().length+', visible <strong>'+
+$.trim($('#content').text()).match(/[^\u200c\u200d]/g).length+'</strong>'):arguments[0]));}
+
+
+function r(){a=arguments;$(a[0]).
+css('-webkit-transform','rotate('+a[1]+'deg)'). /*Chrome, Safari 3.1+*/
+css('-moz-transform','rotate('+a[1]+'deg)').   /*Firefox 3.5-15*/
+css('-ms-transform','rotate('+a[1]+'deg)').   /*IE 9*/
+css('-o-transform','rotate('+a[1]+'deg)').   /*Opera 10.50-12.00*/
+css('transform','rotate('+a[1]+'deg)');}    /**/
+
+
+
+
+$(function(){
+
+
+$('#z').click(function(){//OK
+
+
+ $('#log').html('');
+
+
+ Z=(z.js(
+ $.trim($('#content').html().
+ replace(RegExp(_A,'g'),A).//0.1-support
+ replace(/<br\/?>/g,'\n').
+ replace(/<.*?>/g,'').
+ replace(/&nbsp;/g,' ')),
+ $('#p').val(),$('#r').val())
+ );
+
+
+ is_z=/\u200c/.test(Z); //ZWNJ?
+
+
+ if(is_z&&$('#r').val()==''){$('#content').html('Z\'ed content: '+Z);log('<em>Not masked</em>');return;}
+ if(Z===!1&&$('#r').val().length==2&&!is_z){log('Check <em>Parts-mode</em> input');return;}
+ if(Z===!1){log('Check password');$('#p').trigger('focus');return;}
+
+ $('#content').html(Z);
+
+ if(Z==='')log('<em>No content</em>');
+ else if(!is_z)log('Restored');
+ else log('Z\'ed'+(($('#p').val()!='')?' w/Pwd':''),true);
+
+
+
+
+}).mouseenter(function(){
+$(this).attr('title',('z.js(\''+$.trim($('#content').text())+'\','+ (($('#p').val())?('\''+$('#p').val().replace(/[\s\S]/g,'\u2022')+'\''):'false')  +','+   (($('#r').val()&&!/\u200c/.test($('#content').html()))?('\''+$('#r').val()+'\''):'false')+');\n// Content length: '+$.trim($('#content').text().length)));
+});
+
+
+
+
+
+$('#p2').val('Pwd').focus(function(){$('#p,#p2').toggle();$('#p').focus();}).next().
+focus(function(){$(this).stop().animate({width:140},{duration:2e2});}).blur(function(){
+$(this).stop().animate({width:70},{duration:2e2});});
+
+
+$('#r').val(chr[Math.round(Math.random()*(chr.length-1))]);
+$('.top').click(function(){$('body,html').stop().animate({scrollTop:0},{duration:2e3});});
+
+
+$('.pg').eq(0).css('background','linear-gradient(-55deg,#222,#000)')
+$('.pg').eq(1).css('background','linear-gradient(-55deg,#222,mediumslateblue)')
+
+
+$('.btn_wtf').click(function(e){e.preventDefault();$('body,html').stop().animate({scrollTop:$('#wtf-txt').offset().top-3e2},{duration:1e3});});
+$('#share').click(function(e){e.preventDefault();$(this).next().toggle();}).next().hide().children().attr('target','_blank');
+$('#get').hover(function(){$('code').eq(0).html(z.js.toString().substr(0,70)+'...').fadeTo(9e2,0.9);},function(){$('code').eq(0).html('').hide();});
+
+
+//window.setInterval(function(){r($('img:eq(0)'),++_r%360);},1e1);
+//window.setInterval(function(){k=['mediumslateblue','blue','skyblue'];$('#content').css({borderLeftColor:k[Math.round(Math.random()*k.length)-1]});},5e2);
+
+_o=setInterval(function(){$('output').text($('output').text()-1);
+if($('output').text()==$('output').data().bytes)window.clearInterval(_o);},5e1);
+
+setTimeout(function(){$('#content').animate({minHeight:166},{duration:5e2});},3e3);
+setInterval(function(){$('mark:first').text(cmd[Math.round(Math.random()*(cmd.length-1))]);},7e2);
+
+
+$('#content').focus();
+
+
+
+
+
+/*
+//
+//
+// DEMOS
+//
+//
+*/
+
+
+
+
+//1--Basic example
+tmp='Something'+z.js('hello world')+' inside';
+$('.demo').eq(0).text(tmp+' '+tmp.length);
+$('.demo').eq(1).text(z.js(tmp));
+
+
+//2--Masking
+$('.demo').eq(2).text(z.js('hello <em>world</em>',false,'*'));
+
+
+//2.1--'Parts'-mode
+tmp=z.js('hides only *this* and *that*.',false,'**');
+$('.demo').eq(3).text(tmp);
+$('.demo').eq(4).text(z.js(tmp));
+$('.demo').eq(5).text(z.js('Re*pla*ce aster*iks-wrapped* with DOTS',false,'.*'));
+$('.demo').eq(6).text(z.js('*hello wo*rld*',!1,'**'));
+
+
+//3--Encryption
+$('.demo').eq(7).text(z.js(z.js('hello world','yay'),'nay'));
+$('.demo').eq(8).text(z.js(z.js('hello world','yay'),'yay'));
+$('.demo').eq(9).text(z.js(z.js('hello world','yay'),'nay',true));
+
+
+//4--"z'ed"?
+$('.demo').eq(10).text(/\u200c/.test('foo'));
+$('.demo').eq(11).text(/\u200c/.test(z.js('foo')));
+
+
+});
+
+
+
+/*]]>*/
+</script>
+
+</head>
+
+
+
+<body>
+
+
+<section class="pg">
+
+<div class="k">
+
+ <img src="z.js.png" alt="z.js" height="130" width="130"/><br/><br/>
+ <h1>z.js &mdash; turns content (in)visible*<br/><mark class="m">Type</mark>&darr;</h1><br/><br/>
+ <div id="content" contenteditable="true"></div><br/>
+
+ <button id="z">OK</button>
+ <input id="p2" title="Set Password (optional)" type="text" value="Pwd"/><input id="p" title="Set Password (optional)" type="password" value=""/>
+ <input id="r" title="Mask (optional), 2nd char for Parts-mode" type="text" maxlength="2" value="%"/>
+ <span id="log"><a class="btn_wtf" href="#" title="Documentation/Usage">WTF?</a></span><br/><br/><br/>
+
+ Get <a id="get" target="_blank" href="//raw.githubusercontent.com/mntn-dev/z.js/master/z.js"><strong>z.js</strong></a>
+ (<output data-bytes='876'>912</output>B <a target="_blank" href="//raw.githubusercontent.com/mntn-dev/z.js/master/z.min.js" title="z.min.js">minified</a> &amp; gzipped) / <a target="_blank" href="//github.com/mntn-dev/z.js">@GitHub</a><br/>
+ Licensed under the <strong>MIT License</strong> &lt;https://mit-license.org/&gt;<br/>
+ &copy;2013 <strong>Mntn&reg;</strong> c/o Benjamin Lips &lt;<a title="Mntn&reg; c/o Benjamin Lips" style="border:0!important;" href="//mn.tn/">https://mn.tn/</a>&gt;<br/>
+ *CC-licensed icon by <a href="//thenounproject.com/marwaboukarim/" title="Marwa Boukarim">Marwa Boukarim</a>
+ <br/><br/>
+
+
+
+ <code style="color:mediumslateblue;display:none;"></code><br/><br/>
+
+ <div style="float:left;width:190px;height:180px;">
+  <a id="share" href="#">Share&darr;</a>
+  <span><br/>
+   <a href="//twitter.com/intent/tweet?text=z.js,+a+lightweight+%23JS+lib+to+hide+strings&amp;url=https%3A%2F%2Fmntn-dev.github.io%2Fz.js%2F&amp;via=mntn_srv">Twitter</a><br/>
+   <a href="//plus.google.com/share?url=https%3A%2F%2Fmntn-dev.github.io%2Fz.js%2F">G+</a><br/>
+   <a href="//fb.com/sharer/sharer.php?u=https%3A%2F%2Fmntn-dev.github.io%2Fz.js%2F">Facebook</a><br/>
+   <a href="//vk.com/share.php?url=https%3A%2F%2Fmntn-dev.github.io%2Fz.js%2F">VK</a><br/>
+  </span>
+ </div>
+
+<br/><br/>
+
+</div>
+
+</div>
+
+
+
+<section class="pg"> <!--#wtf-->
+
+ <div class="k">
+
+ <footer>
+
+  <h2 title="What The Foobar?">WTF?</h2><br/><br/>
+
+  <span id="wtf-txt"><strong><em>z.js</em></strong> 'kicks' content into <em>binary code</em>, replacing <em>0</em> with
+  <a target="_blank" href="//en.wikipedia.org/wiki/Zero-width_non-joiner" title="Zero-width non-joiner">ZWNJ</a> and <em>1</em>
+  with <a target="_blank" href="//en.wikipedia.org/wiki/Zero-width_joiner" title="Zero-width joiner">ZWJ</a>. That's all the <em>magic</em>.<br/><br/></span>
+
+  &mdash; Applicable in <strong>UTF-8</strong> environments;<br/>
+  <em>&nbsp;&nbsp; use in posts, tweets, e-mails, et al.</em><br/>
+  &mdash; <em>Support:</em> all modern browsers including <em>IE8+</em><br/>
+  &mdash; Hide <a rel="nofollow" href="website.htm">websites</a> (FTW!11)<br/>
+  <br/><br/><br/><br/>
+
+
+  <span id="btns">
+  <a class="b" target="_blank" href="//raw.githubusercontent.com/mntn-dev/z.js/master/z.min.js">&darr;z.min.js</a>
+  <a class="b" target="_blank" href="//raw.githubusercontent.com/mntn-dev/z.js/master/z.js">&darr;z.js</a>
+  <a class="b" target="_blank" href="//raw.githubusercontent.com/mntn-dev/z.js/master/z.php">&darr;z.php</a>
+  <a class="b" target="_blank" href="//raw.githubusercontent.com/mntn-dev/z.js/master/z-tools.js">&darr;z-tools.js</a>
+  </span>
+
+  <br/><br/><br/><br/><br/>
+ 
+
+<pre><code><span class="c">/*
+
+
+<em>CHANGELOG</em>
+<strong>0.2 (July 2013)</strong>
+* dropped 'ASCII-mode' (tabs <em>(\t)</em> and spaces <em>(\x20)</em> instead of Unicode's <em>ZW(N)Js</em>)
+* added 'Parts-mode'; 2nd char in <em>MASK</em> param
+* header changed; old: <em><q title="html comment">&lt;!----&gt;</q></em>, new: <em>\x00\x00\x00\x00\xff\xff\xff\xff</em>
+...
+
+
+<strong>z.js(DAT [, PWD=false, MSK/RAW=false])</strong>
+
+DAT -- <em>content to hide/restore*</em>
+       (*<strong>z.js</strong> only parses \u200c and \u200d)
+PWD -- <em>Password</em> <strong>(RC4)</strong>
+MSK -- <em>MASK; default (TRUE):</em> &#9609;
+       (<em>z'ed content</em> gets stored between 1st and
+       2nd char in <em>output</em> to avoid <em>Copy&amp;Paste</em> issues;
+       optional 2nd char: <em>Parts-mode</em> (see Example 2.1))
+RAW -- <em>if TRUE, returns raw data instead of
+       FALSE if encrypted</em>
+
+
+*/</span>
+
+
+
+
+0.   <span class="c">//foo,foo,bar</span>
+     console.log(tmp='foo'+<strong>z.js(</strong>'bar'<strong>)</strong>,tmp,<strong>z.js(</strong>tmp<strong>)</strong>);
+
+
+1.   <span class="c">//Basic example; results in zero-width (<strong>168</strong>=(<q title="Header: '\x00\x00\x00\x00\xff\xff\xff\xff'">8</q>*8)+(<q class="o" title="'hello world'">11</q>*8)+<q class="o" title="'Something inside'">16</q>)</span>
+     var tmp='Something'+<strong>z.js(</strong>'hello world'<strong>)</strong>+' inside';
+     console.log(tmp,tmp.length); &rarr; <span class="demo"></span>
+     console.log(<strong>z.js(</strong>tmp<strong>)</strong>); &rarr; <span class="demo"></span>
+
+
+2.   <span class="c">//Masking; tags excluded</span>
+     console.log(<strong>z.js(</strong>'hello &lt;em&gt;<em>world</em>&lt;/em&gt;',false,'*'<strong>)</strong>) &rarr; <span class="demo"></span>
+
+
+2.1  <span class="c">//'Parts'-mode (2nd <em>MSK</em>-char); <em>keeps wrapped content</em></span>
+     var tmp=<strong>z.js(</strong>'hides only *this* and *that*.',false,'**'<strong>)</strong>;
+     console.log(tmp) &rarr; <span class="demo"></span>
+     console.log(<strong>z.js(</strong>tmp<strong>)</strong>) &rarr; <span class="demo"></span>
+     console.log(<strong>z.js(</strong>'Re*pla*ce aster*iks-wrapped* with DOTS',false,'.*'<strong>)</strong>);
+     &rarr; <span class="demo"></span>
+     console.log(<strong>z.js(</strong>'@hello wo@rld@',false,'@@'<strong>)</strong>); &rarr; <span class="demo"></span> <q title="3 '@' chars given, that's one to much/less">(?)</q>
+
+
+3.  <span class="c">//Encrypt</span>
+    console.log(<strong>z.js(z.js(</strong>'hello world','yay'<strong>)</strong>,'nay'<strong>)</strong>); &rarr; <span class="demo"></span>
+    console.log(<strong>z.js(z.js(</strong>'hello world','yay'<strong>)</strong>,'yay'<strong>)</strong>) &rarr; <span class="demo"></span>
+    console.log(<strong>z.js(z.js(</strong>'hello world','yay'<strong>)</strong>,'nay',true<strong>)</strong>) &rarr; <span class="demo"></span>
+
+
+4.  <span class="c">//"z'ed"?</span>
+    console.log(/<em>\u200c</em>/.test('foo')); &rarr; <span class="demo"></span>
+    console.log(/<em>\u200c</em>/.test(<strong>z.js(</strong>'foo'<strong>)</strong>); &rarr; <span class="demo"></span>
+
+
+
+</code></pre>
+
+<br/><br/><button class="top">Top&uarr;</button>
+
+
+</footer>
+
+</div>
+
+
+</div>
+
+
+<div id="t">
+
+
+<span><a href="//mntn-dev.github.io/t.js/" title="t.js &mdash; $.Typewriter w/ nice features">&larr; t.js</a> / <a href="//mn.tn/" title="Mntn&reg;">Mntn&reg;</a>/dev/z.js &nbsp;&nbsp;
+<button class="btn_wtf" title="&darr;">WTF?&darr;</button> <button class="top" title="&uarr;">Top&uarr;</button>
+</span>
+
+</section>
+
+  
+</body>
+
+</html>

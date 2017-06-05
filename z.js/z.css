@@ -1,0 +1,64 @@
+
+.no-select{
+-webkit-user-select:none;  
+-moz-user-select:none;    
+-ms-user-select:none;      
+-o-user-select:none;
+user-select:none;
+}
+
+
+::selection{background:#fff;color:#000;}
+::-moz-selection{background:#fff;color:#000;}
+
+
+*{letter-spacing:-1px;margin:0;padding:0;border:0;outline:0;font-family:'roboto mono',monospace;}
+body,html{background:#fff;color:#fff;font-size:13px;line-height:16px;}
+
+section{position:relative;height:auto;min-height:1100px;width:100%;left:0;top:30px;padding-bottom:100px;}
+section:nth-child(2){height:auto;background:mediumslateblue;padding-bottom:40px;}
+
+.k{position:relative;left:50%;width:700px;margin-left:-350px;padding-top:120px;padding-bottom:120px;}
+
+h1,h2{font-size:25px!important;line-height:35px;font-weight:normal;margin-bottom:20px;}
+h2{cursor:help;background:#fff;padding:10px;border-radius:5px;color:#111;display:inline-block;}
+
+
+a{color:#fff;text-decoration:none;border-bottom:1px solid cyan;}
+#content{min-height:85px;width:700px;font-size:35px;line-height:35px;color:mediumslateblue;/*border-left:1px solid mediumslateblue;padding-left:15px;*/}
+
+button{cursor:pointer;}
+
+#log,input,button,.b{
+box-shadow:1px 0 1px #ccc,0 1px 1px #ddd,2px 1px 1px #ccc, 1px 2px 1px #ddd,3px 2px 1px #ccc, 2px 3px 1px #ddd,4px 3px 1px #ccc, 3px 4px 1px #ddd,5px 4px 1px #ccc, 4px 5px 1px #ddd,6px 5px 1px #ccc;
+padding:10px;color:#111;background:#fff;font-size:18px;margin-right:5px;}
+#log a{border:0;}
+input:hover,button:hover{background:#fff!important;}
+input{width:70px;}
+#r{width:25px;}
+#p{display:none;}
+
+
+
+#log{box-shadow:none;background:none;color:#eee;font-size:16px;}
+
+.m{background:mediumslateblue;border-radius:5px;padding:2px;}
+
+#wtf{border-top:1px solid cyan;width:600px;margin-top:40px;padding-top:60px;}
+#wtf-txt{font-size:35px;display:block;width:500px;line-height:35px;}
+
+pre *{border-bottom:1px solid mediumslateblue;}
+.demo{background:#fff;color:#222;padding-left:5px;padding-right:5px;}
+.c{color:cyan;}
+
+#tweets a{border:0;}
+#tweets a:hover,#tweets #tweets-btn{border-bottom:1px solid cyan;}
+
+#t{position:fixed;z-index:9999;top:0;left:0;width:100%;height:55px;background:#fff;color:#111;}
+#t a{color:#111;}
+#t span{position:relative;left:50%;width:700px;margin-left:-350px;top:12px;display:inline-block;}
+#t button{box-shadow:none;padding:3px;background:#111;color:#fff;border-radius:5px;}
+#t button:hover{color:#fff;background:mediumslateblue!important;}
+
+q:before,q:after{content:""}q{cursor:help;border-bottom:1px solid red;}
+.b{border:0!important;margin-right:10px;}
