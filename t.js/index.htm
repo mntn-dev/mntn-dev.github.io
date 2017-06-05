@@ -36,7 +36,7 @@
 
 
 <link href="//fonts.googleapis.com/css?family=Material+Icons|VT323|Roboto+Mono|Roboto:400,500" rel="stylesheet"/>
-
+<link rel="shortcut icon" href="favicon.ico"/>
 
 <style type="text/css" type="all">
 <!--
@@ -209,7 +209,7 @@ $('#d pre').each(function($$){/*examples compiler*/
 $('#u code').each(function(_){$(this).html($(this).html().replace(/&lt;(.*?)&gt;/g,'<mark>&lt;$1&gt;</mark>'));});
 $('.c').click(function(){$(this).parent().children('code').toggle();});
 $('.r').click(function(){eval($(this).parent().find('code:last').text().replace(/\$\('#demo_[0-9]+'\)/g,'$(this).parent().children(\'pre\')'));});
-$('a .material-icons,button .material-icons').parent().click(function(){$(this).nextAll('span').eq(0).toggle();_=$(this).children();if(/arrow_/.test(_.text()))_.text(_.text()==(__='arrow_downward')?'arrow_upward':__);});
+$('a .material-icons,button .material-icons').parent().click(function(){if($(this).attr('target'))return;$(this).nextAll('span').eq(0).toggle();_=$(this).children();if(/arrow_/.test(_.text()))_.text(_.text()==(__='arrow_downward')?'arrow_upward':__);});
 
 
 
