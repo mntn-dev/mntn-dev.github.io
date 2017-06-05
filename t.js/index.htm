@@ -50,7 +50,7 @@
 
 *{padding:0;margin:0;outline:0;font-family:roboto;font-weight:400;line-height:17px;font-size:13px;
 -ms-word-break:break-all;word-break:break-all;word-break:break-word;-webkit-hyphens:auto;-moz-hyphens:auto;hyphens:auto;
-webkit-tap-highlight-color:rgba(0,0,0,0);
+-webkit-tap-highlight-color:rgba(0,0,0,0);
 }
 
 
@@ -235,20 +235,14 @@ typing:function(e,c){
 });
 
 
-$('#_1').on('click','#exm',function(){
+$(document).on('click','#_1 #exm',function(){
 $('body').animate({scrollTop:(~~$('#e__').offset().top)-50},1500);
 });/*examples-btn*/
 
 
-$('#_1').on('click','#rpt',function(){
+$(document).on('click','#_1 #rpt',function(){
 if(!$('#_1').data().is_typing){$('#gthb-s').html('<ins><i class="spnnr material-icons">cached</i></ins>');$('#_1').t();}
 });/*repeat-btn*/
-
-
-
-
-
-
 
 
 
@@ -459,7 +453,7 @@ entire typing content - in reverse, <code><i class="material-icons">settings</i>
 <strong>Typed elements: <em>Events</em></strong>
 
 <i class="material-icons">info</i> Use jQuery's <em><a class="a" target="_blank" href="//api.jquery.com/on/">.on</a></em> to have event handling (re)attached;
-e.g., <code>$(elem).on('click','child_elem',function(){console.log('clicked!');});</code>
+e.g., <code>$(document).on('click','elem child_elem',function(){console.log('clicked!');});</code>
 
 
 <strong>pause_on_click and <em>clickable</em> child elems</strong>
