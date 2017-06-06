@@ -269,7 +269,7 @@ if(!$('#_1').data().is_typing){$('#gthb-s').html('<ins><i class="spnnr material-
 
 <header>
 
-<h1 id="_1"><strong>t.js</strong> <span style="background:lightyellow;">v0.9</span> &mdash; A lightweight (~2.7KB gzipped+minified) <abbr title="jQuery">$</abbr>.Typewriter, <span id="gthb-s"><ins><i class="spnnr material-icons">cached</i></ins></span> times <ins><i class="material-icons">grade</i></ins>'ed at <a data-click="1" class="a" href="//github.com/mntn-dev/t.js" target="_blank">GitHub<ins><i style="color:blue;" class="material-icons">call_made</i></ins></a>.<br/><br/>
+<h1 id="_1"><strong>t.js</strong> <span style="background:lightyellow;">v0.9</span> &mdash; A lightweight (~2.7<del><ins>1</ins><s>cyan,white</s>MB</del>KB gzipped+minified) <abbr title="jQuery">$</abbr>.Typewriter, <span id="gthb-s"><ins><i class="spnnr material-icons">cached</i></ins></span> times <ins><i class="material-icons">grade</i></ins>'ed at <a data-click="1" class="a" href="//github.com/mntn-dev/t.js" target="_blank">GitHub<ins><i style="color:blue;" class="material-icons">call_made</i></ins></a>.<br/><br/>
 <span style="display:inline-block;height:150px;width:150px;overflow:hidden;float:left;margin-right:17px;backround:blue;"><img id="t-img" src="t.js.png" alt="t.js" style="height:auto;width:150px;"/></span>
 Besides HTML tag support, <em>t.js</em> can de<del data-ins=".75">lete</del>lay<ins>2</ins>, <kbd>mistype</kbd>,<br/><ins style="background:lightcyan;font-style:italic;">'paste'<br/></ins> and more. See some <a class="a pd" id="exm" data-click="1">examples</a> or <a class="a pd" id="rpt" data-click="1">repeat</a> this.<br/>
 </h1>
@@ -452,8 +452,8 @@ entire typing content - in reverse, <code><i class="material-icons">settings</i>
 
 <strong>Typed elements: <em>Events</em></strong>
 
-<i class="material-icons">info</i> Use jQuery's <em><a class="a" target="_blank" href="//api.jquery.com/on/">.on</a></em> to have event handling (re)attached;
-e.g., <code>$(document).on('click','elem child_elem',function(){console.log('clicked!');});</code>
+<i class="material-icons">info</i> Use jQuery's <em><a class="a" target="_blank" href="//api.jquery.com/on/">.on</a></em> to get event handlers (re)attached;
+e.g., <code>$(document).on('click','#typing-elem #child_elem',function(){console.log('clicked!');});</code>
 
 
 <strong>pause_on_click and <em>clickable</em> child elems</strong>
@@ -464,7 +464,7 @@ child elems, just add <code>data-click="1"</code> attribute to 'em
 
 <strong><a class="a" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Block-level_elements" target="_blank">Block-level elements</a> and caret</strong>
 
-<i class="material-icons">info</i> Set regarding elements' CSS to <code>{display:<strong>inline-</strong>block;}</code> to keep caret fitting
+<i class="material-icons">info</i> In somes cases, it's advisable to set regarding elements' CSS to <code>{display:<strong>inline-</strong>block;}</code> to keep caret fitting
 
 
 </span>
