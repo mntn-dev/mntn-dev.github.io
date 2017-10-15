@@ -1,0 +1,109 @@
+<!doctype html>
+
+<html>
+
+<head>
+<title>t.js-del-hack</title>
+
+
+<style type="text/css">
+<!--
+
+
+*{margin:0;padding:0;font:16px/18px monospace;}
+hr{margin-top:10px;margin-bottom:10px;}
+/*p{visibility:hidden;}*/
+del,ins{text-decoration:none;}
+ins{display:none;}
+.t-caret{color:cyan;}
+
+-->
+</style>
+
+
+<script src="//cdn.jsdelivr.net/jquery/3/jquery.min.js"></script>
+<script src="//cdn.rawgit.com/mntn-dev/t.js/75502ae2/t.min.js"></script>
+
+
+
+<script type="text/javascript">
+
+
+
+var txt=[
+'<del>rainy</del>',
+'<del style="color:red;">Hong Kong</del>'
+];
+
+
+
+$(function(){
+
+
+//multiple_ins:
+
+$('button:eq(0)').click(function(){
+
+  $('p:eq(0)').t({typing:function(elm,chr){
+   if(chr=='\u200c'){elm.t('pause');setTimeout(function(){elm.t('pause');},3e3);}
+  }});
+
+
+});
+
+
+
+
+//nested_del:
+
+
+
+$('button:eq(1)').click(function(){
+
+  $(this).attr('disabled',true);
+
+  $('p:eq(1)').t({typing:function(elm,chr){
+
+     if(txt[0]&&chr=='\u200b'){elm.t('pause');elm.children('.t-container:eq(0)').append('<span/>').find(':last').t(txt.shift(),{caret:!1,fin:function(){elm.t('pause');}});}
+
+    },fin:function(elm){
+  
+      elm.t('other <mark>text</mark> ..',{fin:$.noob});
+  
+  }});
+
+
+
+});
+
+
+
+
+});
+
+
+</script>
+
+
+</head>
+
+
+<body>
+
+
+<p>hello. <del>pause.&#x200c; continue.<ins>1</ins></del> bye.</p>
+<button>&#9654; multiple_ins</button>
+
+<hr/>
+
+<p><del>it's a &#x200b;sunny day in &#x200b;Miami, Fl.<ins>2</ins></del></p>
+<button>&#9654; nested_del</button>
+
+
+
+</body>
+
+
+
+</html>
+
