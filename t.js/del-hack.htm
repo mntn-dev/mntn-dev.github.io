@@ -1,4 +1,11 @@
-<!doctype html>
+!doctype html>
+
+<!--
+
+> https://github.com/mntn-dev/t.js/issues/4
+> https://github.com/mntn-dev/t.js/issues/3
+
+-->
 
 <html>
 
@@ -30,9 +37,10 @@ ins{display:none;}
 
 
 
-var txt=[
-'<del>rainy</del>',
+var del_sub=[
+'<del>rainy<s>blue,#fff</s><ins>2</ins></del>',
 '<del style="color:red;">Hong Kong</del>'
+//...
 ];
 
 
@@ -45,7 +53,7 @@ $(function(){
 $('button:eq(0)').click(function(){
 
   $('p:eq(0)').t({typing:function(elm,chr){
-   if(chr=='\u200c'){elm.t('pause');setTimeout(function(){elm.t('pause');},3e3);}
+   if(chr=='\u200c'){elm.data('pause',1);setTimeout(function(){elm.data('pause',0);},3e3);} // pauses typing, continues after 3s
   }});
 
 
@@ -56,21 +64,23 @@ $('button:eq(0)').click(function(){
 
 //nested_del:
 
-
-
-$('button:eq(1)').click(function(){
+ $('button:eq(1)').click(function(){
 
   $(this).attr('disabled',true);
 
   $('p:eq(1)').t({typing:function(elm,chr){
 
-     if(txt[0]&&chr=='\u200b'){elm.t('pause');elm.children('.t-container:eq(0)').append('<span/>').find(':last').t(txt.shift(),{caret:!1,fin:function(){elm.t('pause');}});}
+     if(del_sub[0]&&chr=='\u200b'){
+       elm.data('pause',1); // pauses main typing elm
+       elm.children('.t-container:eq(0)').append('<span/>').find(':last').  // appends sub typer elm
+       t(del_sub.shift(),{caret:!1,fin:function(){elm.data('pause',0);}});} // runs sub typer with del_sub[] content, continues main typer on fin
+
 
     },fin:function(elm){
   
-      elm.t('other <mark>text</mark> ..',{fin:$.noob});
+      elm.t('other <mark>text</mark> ..',{fin:$.noob}); // overwrites fin callback
   
-  }});
+ }});
 
 
 
