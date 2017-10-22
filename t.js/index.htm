@@ -474,7 +474,7 @@ child elems, just add <code>data-click="1"</code> attribute to 'em
 <i class="material-icons">info</i> Add this to your page:
 
 <code>$(window).on('blur focus',function(e){
-if($(<em>elm</em>).data().is_typing)$(<em>elm</em>).data('pause',(e.type=='blur')?1:0);
+if($(<em>elm</em>).data().is_typing)$(<em>elm</em>).t('pause',(e.type=='blur')?true:false);
 });</code>
 
 
