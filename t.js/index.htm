@@ -587,16 +587,39 @@ pause_on_click:true // data-click="1" attr in &lt;a&gt; prevents pause on click/
 
 </div>
 
+
 <div>
 
-<pre id="demo_5">
+<pre id="demo_5" class="vt323">
+#######<ins><span id="pow-txt" style="display:none;color:tomato;">---[POW!]</span></ins>
+##<del>\<ins>1.5</ins></del><del id="pow-trigger">|</del>\
 </pre>
 
 <code>
-if($('#demo_5').data().t) //initialised?
- $('#demo_5').t('add','<br/>'+(~~(Math.random()*1e7)));
+$('#pow-txt').hide();
+
+$('#demo_5').t({typing:function(elm,chr){
+if(chr.match(/\-trigger/))$('#pow-txt').show();
+
+}});
+
+</code>
+
+</div>
+
+
+
+
+<div>
+
+<pre id="demo_6">
+</pre>
+
+<code>
+if($('#demo_6').data().t) //initialised?
+ $('#demo_6').t('add','<br/>'+(~~(Math.random()*1e7)));
 else
- $('#demo_5').t('<strong>Yay.</strong>',{speed:45,speed_vary:true});
+ $('#demo_6').t('<strong>Yay.</strong>',{speed:45,speed_vary:true});
 
 
 </code>
