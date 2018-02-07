@@ -302,7 +302,7 @@ $(function(){
   blink_perm:false,     /* permanent caret blinking; if FALSE, blinks
                            only when delayed (&lt;ins&gt;), paused or finished */
   tag:'span',           // wrapper tag (.t-container/.t-caret)
-  repeat:false,         // if TRUE, infinite or N times
+  repeat:0,             // if TRUE, infinite or N times
   pause_on_click:false, // pauses/continues typing on click/tap
 
   //Callbacks
@@ -320,8 +320,8 @@ $(elem).t('pause'[,true/false]);  // pauses typing (toggles if 2nd param omitted
 
 //Data/properties
 $(elem).data().t;                 // TRUE if initialised
-$(elem).data().is_typing;                 // typing
-$(elem).data().pause;                     // paused
+$(elem).data().is_typing;                 // typing?
+$(elem).data().pause;                     // paused?
 
 </code>
 </span>
