@@ -1,32 +1,17 @@
-<!doctype html><!--
+<!doctype html>
 
+<head>
 
-    #       # ###
-  #####     # #
-    #       # ###
-    #     # #   #
-  $.### # ### ###
+<title>t.js &mdash; jQuery.Typewriter with full HTML tag support</title>
 
-  ###############
-
-
--->
-
-
-
-<html>
-
-<head prefix="og: http://ogp.me/ns#">
-
-
-<title>t.js &mdash; jQuery.Typewriter with nice features like HTML support</title>
 <meta charset="utf-8"/>
 <meta name="author" content="Mntn&reg; c/o Benjamin Lips"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 
 <meta name="robots" content="nosnippet,noarchive,notranslate"/>
-<meta name="keywords" content="jquery,t.js,typewriter,text,javascript,plugin,typography,html,DOM traversing"/>
+<meta name="keywords" content="jquery,t.js,typewriter,text,javascript,plugin,typography,html tags"/>
 <meta name="description" content=""/>
+
 
 <meta property="og:type" content="website"/>
 <meta property="og:title" content="t.js"/>
@@ -35,227 +20,206 @@
 <meta property="og:image" content="https://mntn-dev.github.io/t.js/t.js.png"/>
 
 
-<link href="//fonts.googleapis.com/css?family=Material+Icons|VT323|Roboto+Mono|Roboto:400,500" rel="stylesheet"/>
-<link rel="shortcut icon" href="favicon.ico"/>
+<link rel="shortcut icon" href="https://mntn-dev.github.io/t.js/favicon.ico"/>
+<link href="https://fonts.googleapis.com/css?family=Material+Icons" rel="stylesheet"/> <!-- list: https://material.io/icons/ -->
 
-<style type="text/css" type="all">
+
+
+<style type="text/css">
 <!--
 
+
+@font-face{font-family:'c';src:url('https://mntn-dev.github.io/_/chicagoflf.ttf') format('truetype');}
 
 
 ::selection{background:aquamarine;color:white;}
 ::-webkit-selection{background:aquamarine;color:white;}
 ::-moz-selection{background:aquamarine;color:white;}
 
+.bx *::selection{background:magenta;color:white;}
+.bx *::-webkit-selection{background:magenta;color:white;}
+.bx *::-moz-selection{background:magenta;color:white;}
 
-*{padding:0;margin:0;outline:0;font-family:roboto;font-weight:400;line-height:17px;font-size:13px;
--webkit-hyphens:auto;-moz-hyphens:auto;hyphens:auto;
+
+
+body,html{width:100%;height:100%;}
+body{background:floralwhite;color:mediumslateblue;}
+
+*{padding:0;outline:0;margin:0;cursor:default;font-family:c,monospace;line-height:2.2vw;font-size:1.5vw;white-space:pre-wrap;
+/*-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;*/
 -webkit-tap-highlight-color:rgba(0,0,0,0);
+-webkit-hyphens:auto;-moz-hyphens:auto;hyphens:auto;
 }
 
+#t{position:absolute;top:20%;left:50%;width:66%;height:auto;margin-left:-33%;display:none;padding-bottom:100px;}
 
-h1{font-weight:400;margin-bottom:30px;}
-h1:not(#e__){min-height:70px;}
-h1,h1 *{font-size:40px;line-height:50px;color:mediumslateblue;}
-h2{display:inline-block;padding:8px;font-size:25px;line-height:28px;background:cornflowerblue;color:#fff;border-radius:20px;margin:20px 0 20px 0;}
+a{color:mediumslateblue;text-decoration:none;border-bottom:1px solid aquamarine;}
+.btn,.btn2{border:0;background:cyan;color:white;padding:10px;box-shadow:5px 5px 0 #00000025;margin-bottom:10px;}
+.btn:hover{background:aquamarine;}
 
+.btn2{background:tomato;box-shadow:5px 5px 0 #ffffff25;display:block;}
+
+
+code{background:lightyellow;}
+
+.g{color:#0f0;}
+
+ins,del{text-decoration:none;font-size:inherit;}
+.t-caret{color:magenta;font-size:inherit;/*display:inline-block;height:1.5vw;width:1.1vw;background:magenta;position:relative;line-height:0;top:-0.8vw;*/}
+
+.o{opacity:.3;}
+abbr{text-decoration:none;border-bottom:3px solid violet;}
+hr{border:1px solid white;}
+
+mark{background:none;}
+
+h1{display:inline-block;}
+h1,.xl{font-size:3vw;line-height:3.5vw;}
+
+
+
+.bx{width:100%;height:auto;background:#111;color:white;padding:50px;overflow:hidden;display:none;}
+.bx,.bx *{white-space:normal;}
+#u *,#e *{white-space:pre-wrap;word-wrap:break-word;}
+#u code{background:none;}
+#u u{color:mediumslateblue;text-decoration:none;border-bottom:2px solid blue;}
+.c{display:block;text-align:center;margin-left:-20%;}
+
+#e-btn-k{background:tomato;}
+
+
+@media(max-width:800px){#t{width:500px;margin-left:-250px;}}
+
+
+
+
+dt,dd{float:left;display:block;width:30%}dd{width:60%;}dt{clear:left;}
+
+._b{color:magenta;}
+._n{color:yellow;}
+._p{color:lightpink;}
+._s,._s *{color:tomato!important;}
+._t,._c{color:aquamarine;}
+
+.html,.css,.js{background:#00f;color:#fff;padding:5px;font-size:0.8vw;border-radius:5px;position:relative;top:-4px;}
+.css{background:orangered;}
+.js{background:gold;}
+
+
+.material-icons{font-size:inherit;line-height:0;display:inline-block;top:0.1vw;position:relative;word-wrap:normal!important;}
 
 .spnnr{-webkit-animation:x-spnnr 1s infinite;-moz-animation:x-spnnr 1s infinite;-o-animation:x-spnnr 1s infinite;animation:x-spnnr 1s infinite;}
 @keyframes x-spnnr{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
 
 
 
-#_1{visibility:hidden;cursor:pointer;}
 
+ul{list-style:none;}
+li{float:left;width:40%;margin-right:10%;}
+li:nth-child(3n){width:75%;margin:50px 0 50px 0;}
+.output{visibility:hidden;width:auto;max-height:0;padding-bottom:10px;border-top:3px solid yellow;}
+#e *{font-size:1vw;line-height:1.5vw;}
 
-abbr{cursor:help;border-bottom:1px solid violet;text-decoration:none;}
-
-pre{margin-bottom:20px;}
-
-a{text-decoration:none;border-botton:1px solid black;color:inherit;}
-
-section{position:relative;padding-top:10%;margin:0 auto;width:650px;height:auto;margin-bottom:60px;/*border-right:2px solid #eee;*/}
-
-del,ins{text-decoration:none;}
-kbd{font-family:inherit;}
-
-div{padding-bottom:20px;border-bottom:1px solid gold;}
-#b{position:fixed;top:0;left:0;height:100%;width:100%;z-index:-127001;background:linear-gradient(-127deg,floralwhite,ghostwhite);}
-
-
-strong, strong *{font-weight:500;}
-
-
-.t-caret{color:blue;}
-
-
-.a{border-bottom:1px solid blue;}
-a:not(.a):not(._0),button{border:0;cursor:pointer;color:#fff;background:blue;padding:10px;margin-right:5px;display:inline-block;
-border-bottom:2px solid cyan;}
-
-
-code,code *{font-family:'roboto mono';font-size:12px;line-height:15px;}
-code{display:none;min-width:500px;white-space:pre-wrap;padding:10px;background:blueviolet;color:#fff;}mark{background:none;}
-#d code,#d code *{}div code:nth-child(even){background:#111;margin-bottom:10px;}
-#d div code:nth-child(odd) mark{color:cyan;}
-#d pre{display:none;}
-#d code{display:block;}
-#d pre,#d code{cursor:default!important;}
-
-#u code{display:inline-block;min-width:auto;background:#ddd;color:#111;padding:3px;border-radius:5px;border:1px solid #ddd;margin-bottom:5px;
-background:linear-gradient(-90deg,#fafafa,#fff);}
-#u code mark{border-bottom:1px dashed gold;}
-#u code em{background:#eee;font-style:normal;}
-#u span{display:none;}
-
-
-/*---*/
-.c_pnc{color:steelblue;}
-.c_num,.c_num *{color:aquamarine!important;}
-.c_cmt,.c_cmt *{color:springgreen!important;}
-.c_str{color:orangered;}
-.c_bol{color:deeppink;}
-.c_key{color:tan;}
-/*---*/
-
-
-
-.vt323,.vt323 *{font-family:vt323;}
-.material-icons{font-size:inherit;line-height:0;display:inline-block;position:relative;top:.15em;color:blue;}
-.mi-xl{font-size:25px!important;}
-a .material-icons,button .material-icons{top:3px;color:floralwhite;}
-
-
-
-
-
-
-
-
-
-
-
-/*@media(max-width:700){*{line-height:1.1vw;font-size:0.8vw;}}
-
-
-@media(min-width:1000px){
-*{line-height:1.3vw;font-size:1.1vw;}
-}
-
-@media(min-width:1200px){
-*{line-height:1.1vw;font-size:0.9vw;}
-}
-
-@media(min-width:1400px){
-*{line-height:1.0vw;font-size:0.7vw;}
-}
-
-
-*/
 
 -->
 </style>
 
-<script src="//cdn.jsdelivr.net/jquery/3/jquery.min.js"></script>
-<script src="//cdn.rawgit.com/mntn-dev/t.js/75502ae2/t.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> <!-- v3.3.1 -->
+<!--<script src="https://rawgit.com/mntn-dev/t.js/master/t.min.js"></script>    v1.0-->
 
+
+<script src="t.min.js?__www5646"></script>         <!-- 1.0 -->
 
 
 <script type="text/javascript">
-/*<![CDATA[*/
+//<![CDATA[
 
-
-//console.clear();
-
-
-var S=!1;
-
-/*highlighting*/function syn(_){s=[];return(_
-.replace(/</g,'&lt;').replace(/>/g,'&gt;')
-.replace(/\\"/g,'__2__').replace(/\\'/g,'__1__')
-.replace(/'(.*?)'|"(.*?)"/g,function(_){s.push(_);return('__S__');})
-.replace(/([^"'_a-z0-9])(false|true|\!1|\!\!1)/ig,'$1<mark class="c_bol">$2</mark>')
-.replace(/([^!])(\d{0,}\.{0,1}\d{1,}\.{0,1})/g,'$1<mark class="c_num">$2</mark>')
-.replace(/([,:\[\]\{\}\(\)])/g,'<mark class="c_pnc">$1</mark>')
-.replace(/(\/\*[\s\S]*?\*\/|\/\/.*)/g,'<mark class="c_cmt">$1</mark>')
-.replace(/(if|else|function|var|return)([^a-z0-9])/ig,'<mark class="c_key">$1</mark>$2')
-.replace(/__S__/g,function(){return('<mark class="c_str">'+s.shift()+'</mark>');})
-.replace(/__1__/g,'\\\'').replace(/__2__/g,'\\"'));}
-
-
+var box_opened=!1;
 
 $(function(){
 
 
-$('#c__').html(syn($('#c__').html()));/*setup syntax*/
+ $('#__e').attr('href',$('#__e').attr('href').replace(/%/,'g'));
 
 
-$('#d pre').each(function($$){/*examples compiler*/
- 
- _=$(this).next();_.html(syn(_.html()));
+ $(document).on('click','#s-btn,#u-btn,#e-btn',function(){/*boxes*/
+  box_opened=!!1;__=!1;_=$('#'+$(this).attr('id').substr(0,1));if(_.is(':visible')){$('.bx').hide();p=!1;}else{$('.bx').hide();_.show();p=!!1;}$('#t').p(p);
+ }).on('click','.btn2',function(){/*examples-btns*/
+      __=$(this).parent().prev().prev();if(!__.data('o'))__.html(__.html().replace(/&lt;/g,'<').replace(/&gt;/g,'>')).css({maxHeight:'100%'}).data('o',1);
+      _=$(this).parent().html().replace(/<.*?>/g,'').replace(/&lt;/g,'<').replace(/&gt;/g,'>').match(/(\$[\s\S]+\);)/);
+      $('html').stop().animate({scrollTop:__.offset().top-75},2e2);eval(_[0]);
+         
+ });
 
- $(this).parent()
- .prepend($('<h2/>',{html:'#'+($$+1)+'<br/>'}))
- .append($('<button/>',{class:'r',html:'<i class="material-icons">play_arrow</i>  run'}))
- .append($('<button/>',{class:'c',html:'<i class="material-icons">code</i>  code'}));
- 
- $(this).after($('<code/>',{html:('<pre id="demo_'+($$+1)+'">\n'+$.trim($(this).html())+'\n</pre>').replace(/<(.*?)>/g,'<mark>&lt;$1&gt;</mark>')
- .replace(/[\u0100-\uffff]/g,function(_){return('&amp;#'+_.charCodeAt(0)+';');}).replace(/(<mark)(>&lt;\/?(ins|del|kbd).*?)</g,'$1 style="color:gold;"$2<')}));
+
+ var n=0;$('li:gt(2)').each(function(_){/*examples*/
+ if(_%3==0){$(this).prev().addClass('output').html('<pre id="demo_'+(++n)+'">'+$(this).html()+'</pre>');$(this).prepend('*html*\n\n&lt;pre id="demo_'+n+'">\n').append('&lt;/pre&gt;');}
+ else if(_%3==1)$(this).prepend('*js*\n\n').append('\n\n<button>&#x25b6;Run</button>').html($(this).html().replace(/#demo/,'#demo_'+n));
+ });
+
+
+
+ $('dt,#u code,li:gt(2):not(.output)').each(function(){/*lil' syntax highlighter*/
+  $(this).html($(this).html().
+   replace(/('[\s\S]*?'|"[\s\S]*?")/g,'<mark class="_s">$1</mark>').
+   replace(/(&lt;[\s\S]*?&gt;)/g,'<mark class="_t">$1</mark>').
+   replace(/>(\d+\.*\d*|\.\d+)/g,'><mark class="_n">$1</mark>').
+   replace(/[^:](\/\/[\s\S]*?[\n\r])/g,'<mark class="_c">$1</mark>').
+   replace(/([\(\)\]\[\,\:\{\}])/g,'<mark class="_p">$1</mark>').
+   replace(/(true|false|\!\!1|\!1)/gi,'<mark class="_b">$1</mark>').
+   replace(/\|_ /g,'<i class="material-icons g">subdirectory_arrow_right</i>').
+   replace(/\*html\*/g,'<span class="html">HTML</span>').
+   replace(/\*js\*/g,'<span class="js">JS</span>').
+   replace(/\*css\*/g,'<span class="css">CSS</span>'));
+ });
+
+ $('dd').each(function(){$(this).html($(this).html().replace(/^(\/\/.*?|\/\*.*?)$/g,'<mark class="_c">$1</mark>'));});
+ $('#u').html($('#u').html().replace(/\|_ /g,'<i class="material-icons g">subdirectory_arrow_right</i>').replace(/alt\.\:/g,'<span class="g">alt.:</span>'));
+ $('#e button').addClass('btn2');
+
+
+
+ $('#t').t({
+  delay:2,
+  speed:50,
+  blink:300,
+  caret:'<span id="__c" style="display:inline-block;height:1.5vw;width:20vw;background:magenta;"></span>', 
+  beep:true,
+  mistype:4,
+  locale:'en',
+  tag:'span',
+  init:function(){
+  
+  $('#__c').animate({width:'1vw'},15e2);
+
+  
+  },
+  
+  typing:function(elm,chr_or_elm,total,left){
+
+    if(chr_or_elm=='\n')if($('#t').height()>($(window).height()-150))$('html').stop().animate({scrollTop:$(document).height()},{duration:1});
+    
+    if(chr_or_elm.match(/github\-stars/))
+     $.getJSON('https://api.github.com/repos/mntn-dev/t.js',function(_){setTimeout(function(){if($.isNumeric(_=_.stargazers_count))$('#github-stars').html('<span style="color:white;background:tomato;">'+_+'</span>');else $('#github-stars').html('>100')},3e3,_);});
+
+  },
+
+  fin:function(elm){
+      elm.removeData('fin');//unsets callback: avoids infinite executing after add
+      if(!box_opened)setTimeout(function(){$(elm).a('See some <span style="border-bottom:1px solid aquamarine;" onclick="$(\'html\').animate({scrollTop:0},{duration:2e2,complete:function(){if($(\'#e\').is(\':hidden\'))$(\'#e-btn\').trigger(\'click\')}});">Examples</a>.')},3e3);
+      
+  }
+      
+                
+ });
+
+
+
+
 
 });
 
-
-
-$('#u code').each(function(_){$(this).html($(this).html().replace(/&lt;(.*?)&gt;/g,'<mark>&lt;$1&gt;</mark>'));});
-$('.c').click(function(){$(this).parent().children('code').toggle();});
-$('.r').click(function(){eval($(this).parent().find('code:last').text().replace(/\$\('#demo_[0-9]+'\)/g,'$(this).parent().children(\'pre\')'));});
-$('a .material-icons,button .material-icons').parent().click(function(){if($(this).attr('target'))return;$(this).nextAll('span').eq(0).toggle();_=$(this).children();if(/arrow_/.test(_.text()))_.text(_.text()==(__='arrow_downward')?'arrow_upward':__);});
-
-
-
-
-$.getJSON('https://api.github.com/repos/mntn-dev/t.js',function(_){S=_.stargazers_count;});/*stars*/
-setTimeout(function(){$('#c_').trigger('click');},2e3);/*setup-vis*/
-
-
-/*welcome*/
-$('#_1').t({
-speed:80,
-caret:'<span style="color:magenta;">\u2592</span>',
-blink:3e2,
-mistype:4,
-pause_on_click:true,
-init:function(){setTimeout(function(){$('h1:not(#e__)').animate({minHeight:250},7e2);},7e2);},
-typing:function(e,c){
-
-  if(/gthb-s/.test(c))setTimeout(function(){$('#gthb-s').text((S==!1)?'136+':S);},15e2);
-
-}
-
-});
-
-
-$(document).on('click','#_1 #exm',function(){
-$('html').stop().animate({scrollTop:(~~$('#e__').offset().top)-50},{duration:15e2});
-
-});/*examples-btn*/
-
-
-$(document).on('click','#_1 #rpt',function(){
-if(!$('#_1').data().is_typing){$('#gthb-s').html('<ins><i class="spnnr material-icons">cached</i></ins>');$('#_1').t();}
-});/*repeat-btn*/
-
-
-
-
-});
-
-
-
-
-
-
-/*]]>*/
+//]]>
 </script>
 
 
@@ -264,381 +228,254 @@ if(!$('#_1').data().is_typing){$('#gthb-s').html('<ins><i class="spnnr material-
 
 <body>
 
-
-
-<section>
-
-<header>
-
-<h1 id="_1"><strong>t.js</strong> <span style="background:lightyellow;">v0.9</span> &mdash; A lightweight (~2.7<del><ins>1</ins><s>cyan,white</s>MB</del>KB gzipped+minified) <abbr title="jQuery">$</abbr>.Typewriter, <span id="gthb-s"><ins><i class="spnnr material-icons">cached</i></ins></span> times <ins><i class="material-icons">grade</i></ins>'ed at <a data-click="1" class="a" href="//github.com/mntn-dev/t.js" target="_blank">GitHub<ins><i style="color:blue;" class="material-icons">call_made</i></ins></a>.<br/><br/>
-<span style="display:inline-block;height:150px;width:150px;overflow:hidden;float:left;margin-right:17px;backround:blue;"><img id="t-img" src="t.js.png" alt="t.js" style="height:auto;width:150px;"/></span>
-Besides HTML tag support, <em>t.js</em> can de<del data-ins=".75">lete</del>lay<ins>2</ins>, <kbd>mistype</kbd>,<br/><ins style="background:lightcyan;font-style:italic;">'paste'<br/></ins> and more. See some <a class="a pd" id="exm" data-click="1">examples</a> or <a class="a pd" id="rpt" data-click="1">repeat</a> this.<br/>
-</h1>
-
-<p><strong>v0.9</strong> (Jun 04, 2017) / MIT-licensed<br/>&copy;2014&mdash;2017 <a class="_0 a" title="Mntn&reg;" href="https://mn.tn/">Mntn&reg;</a> &lt;https://mn.tn/&gt; c/o Benjamin Lips
-</p>
-<br/><br/>
-
-<button id="c_"><i class="material-icons">arrow_downward</i> setup</button> <a target="_blank" href="//raw.githubusercontent.com/mntn-dev/t.js/master/t.js"><i class="material-icons">file_download</i> t.js</a> <a target="_blank" href="//raw.githubusercontent.com/mntn-dev/t.js/master/t.min.js"><i class="material-icons">file_download</i> t.min.js</a>  <a target="_blank" href="//github.com/mntn-dev/t.js/archive/master.zip"><i class="material-icons">archive</i> zip bundle (incl. demo.htm)</a><br/></br/>
-
-<span id="setup" style="display:none;">
-<code style="display:block;background:blueviolet;color:#fff;">
-<mark style="color:cyan;">&lt;script type=</mark>"text/javascript" <mark style="color:cyan;">src=</mark>"jquery.min.js"<mark style="color:cyan;">&gt;&lt;/script&gt;</mark>
-<mark style="color:cyan;">&lt;script type=</mark>"text/javascript" <mark style="color:cyan;">src=</mark>"t.min.js"<mark style="color:cyan;">&gt;&lt;/script&gt;</mark>
-</code>
-<code id="c__" style="display:block;background:#111;">
-$(function(){
-
-  $(elem).t([content,]{
-
-  //Basic settings
-  speed:75,             // typing speed (ms)
-  speed_vary:false,     // 'human-like' (bool)
-  delay:false,          // delays start for (N.)Ns
-  mistype:false,        // mistyping/error rate: 1:N per char
-  locale:'en',          // keyboard layout; 'en', 'de' (german)
-  caret:true,           // caret (can be HTML); default (TRUE): &#x258e;(\u258e)
-  blink:false,          // blink; if TRUE, 200ms or N ms
-  blink_perm:false,     /* permanent caret blinking; if FALSE, blinks
-                           only when delayed (&lt;ins&gt;), paused or finished */
-  tag:'span',           // wrapper tag (.t-container/.t-caret)
-  repeat:0,             // if TRUE, infinite or N times
-  pause_on_click:false, // pauses/continues typing on click/tap
-
-  //Callbacks
-  init:function(elem){}, 
-  typing:function(elem,char/elem,chars_total,chars_left){},
-  fin:function(elem){}
-
-});});
-
---------------------------------
-
-//Methods
-$(elem).t('add',content);         // adds content
-$(elem).t('pause'[,true/false]);  // pauses typing (toggles if 2nd param omitted)
-
-//Data/properties
-$(elem).data().t;                 // TRUE if initialised
-$(elem).data().is_typing;                 // typing?
-$(elem).data().pause;                     // paused?
-
-</code>
-</span>
-
-</header>
-
-
-
-<article id="u">
-
-<pre>
-
-<button><i class="material-icons">arrow_downward</i> Let's type</button>
-<span>
-
-<strong>Got jQuery and t.js loaded?</strong>
-
-<code>$(elem).t();</code>
-<i class="material-icons">subdirectory_arrow_right</i> the most basic init; reads elem's .html(), types
-
-<code>$(elem).t({speed:30[,..]});</code>
-<i class="material-icons">subdirectory_arrow_right</i> same as above but with settings
-
-<code>$(elem).t('text to &lt;em&gt;type&lt;/em&gt;.'[,{settings}]);</code>
-<i class="material-icons">subdirectory_arrow_right</i> types given string (2nd, optionally param: settings)
-
-
-<strong>Adding content, pause typing</strong>
-
-<code>$(elem).t(<em>'add'</em>,'&lt;br/&gt;new line added..');</code>
-<i class="material-icons">subdirectory_arrow_right</i> adds content to non-paused/non-typing <em>elem</em>
-
-<code>$(elem).t(<em>'pause'</em>[,(true/false)]);</code>
-<i class="material-icons">subdirectory_arrow_right</i> pauses typing (toggles if 2nd param omitted)
-(alt. <code>$(elem).data('pause',(true/false));</code>)
-</span>
-
-<button><i class="material-icons">arrow_downward</i> &lt;del&gt;, &lt;ins&gt; and &lt;kbd&gt;</button>
-<span>
-
-<strong>Unlike other typewriter scripts, <em>t.js</em> provides an easy, HTML tag-based solution to perform basic editing ops</strong>
-
-
-<i class="material-icons mi-xl">delete</i>
-
-<strong>&lt;del&gt; &mdash; Deleting</strong>
-
-<code>Hello! &lt;del&gt;Moon&lt;/del&gt;Sun is up.</code>
-<i class="material-icons">subdirectory_arrow_right</i> deletes 'Moon' (by default, <em>t.js</em> waits 250ms (0.25s) before removing)
-
-
-<code>&lt;del&gt;Moon&lt;ins&gt;2.5&lt;/ins&gt;&lt;/del&gt;Sun is up.</code>
-<i class="material-icons">subdirectory_arrow_right</i> having an numeric-filled &lt;ins&gt; tag inside &lt;del&gt;: waits 2.5s before removing
-(<em>alt.:</em> <code>&lt;del <em>data-ins="2.5"</em>&gt;Moon&lt;/del&gt;Sun is up.</code>
-
-
-<code>&lt;del&gt;*&lt;/del&gt;</code>
-<i class="material-icons">subdirectory_arrow_right</i> '*' clears everything typed before (still stored in case of <em>repeating</em>)
-
-
-<code>&lt;del&gt;i get selected&lt;s&gt;&lt;/s&gt;&lt;/del&gt;</code>
-<i class="material-icons">subdirectory_arrow_right</i> having an &lt;s&gt; tag inside &lt;del&gt;: performs deleting by text selection;
-by default (empty &lt;s&gt;), selected text highlights to <em>lightyellow</em>, to customize, set your own
-color(s) or <em>class name</em>:
-
-    <code>&lt;s&gt;red&lt;/s&gt;</code> <i class="material-icons">subdirectory_arrow_right</i> background color: <em>red</em>
-    <code>&lt;s&gt;black,#fff&lt;/s&gt;</code> / <code>&lt;s&gt;#faff00,#dd19ee&lt;/s&gt;</code> <i class="material-icons">subdirectory_arrow_right</i> comma seperated: <em>background</em>, <em>color</em>
-    <code>&lt;s&gt;.my_sel&lt;/s&gt;</code> <i class="material-icons">subdirectory_arrow_right</i> CSS class 
-
-    You can also combine:
-    <code>&lt;del&gt;i get selected&lt;s&gt;blue,white&lt;/s&gt;&lt;ins&gt;2.5&lt;/ins&gt;&lt;/del&gt;</code>
-    (<em>alt.:</em> <code>&lt;del <em>data-ins="2.5" data-s="blue,white"</em>&gt;i get selected&lt;/del&gt;</code>)
-
-
-
-<i class="material-icons mi-xl">schedule</i>
-
-<strong>&lt;ins&gt; &mdash; Insert delay, 'paste'</strong>
-
-<code>Hold on!&lt;ins&gt;5&lt;/ins&gt;&lt;br/&gt;OK.</code> (<em>alt.:</em> <code>Hold on!&lt;ins <em>data-ins="5"</em>&gt;&lt;/ins&gt;&lt;br/&gt;OK.</code>)
-<i class="material-icons">subdirectory_arrow_right</i> stops typing for five seconds
-
-
-<code>Very &lt;ins&gt;fast delivery of &lt;u&gt;content&lt;/u&gt;&lt;/ins&gt; here.</code>
-<i class="material-icons">subdirectory_arrow_right</i> non-numeric filled &lt;ins&gt;: inserts content <em>ins</em>tantly
-
-
-
-<i class="material-icons mi-xl">keyboard</i>
-
-<strong>&lt;kbd&gt; &mdash; keyboard/<em>mistyping</em></strong>
-
-<code>Waiting for user input..&lt;ins&gt;1.5&lt;/ins&gt;&lt;kbd&gt;hello world!&lt;/kbd&gt;&lt;br/&gt;OK</code>
-<i class="material-icons">subdirectory_arrow_right</i> will apply setting's <code><i class="material-icons">settings</i>mistype</code> rate to 'hello world!' (keyboard layout can be defined with <code><i class="material-icons">settings</i>locale</code>;
-available: <strong>en</strong> (english/default) and <strong>de</strong> (german))
-
-<em>Hint:</em> if <code><i class="material-icons">settings</i>mistype</code> is defined, though no <code>kbd</code> tag occurrence, <em>mistyping</em> extends to
-entire typing content - in reverse, <code><i class="material-icons">settings</i>mistype</code> will be set to <em>10</em>
-
-
-
-
-<strong>Notes</strong>
-
-<i class="material-icons">info</i> Unset default styles with CSS: <code>ins,del{text-decoration:none;}</code>, <code>kbd{font-family:inherit;}</code>
-<i class="material-icons">info</i> Except <code>&lt;ins&gt;</code> and <code>&lt;s&gt;</code> there shouldn't be any other HTML tags inside <code>&lt;del&gt;</code>
-<i class="material-icons">info</i> To keep your HTML clean, it's possible to comment-out (<code>A &lt;!--&lt;del&gt;bad&lt;/del&gt;--&gt;good day.</code>,
-     <code>&lt;!--&lt;ins&gt;--&gt;Hello world&lt;!--&lt;/ins&gt;--&gt;</code>) -- <em>t.js</em> will take account
-
-
-</span>
-
-<button><i class="material-icons">arrow_downward</i> Issues</button>
-<span>
-
-<strong><em>To-type-content</em> flashes on page load</strong>
-
-<i class="material-icons">info</i> It's recommended to set your typing <em>elem</em>'s CSS to <code>{visibility:hidden;}</code> or
-<code>{display:none;}</code> to avoid
-
-
-<strong>Typing activity interrupts, slows down on browser tab/window switch</strong>
-
-<i class="material-icons">info</i> A known, common browser 'issue': <code>setInterval</code> (wraps typing activity) weaks on inactive windows; a simple
-  workaround is to include <a class="a" href="//github.com/turuslan/HackTimer" target="_blank">HackTimer</a> into your page (on top):
+<section id="t"><ins>
+<button class="btn xl" id="s-btn"><i class="material-icons">settings</i>Settings</button>  <button class="btn xl" id="u-btn"><i class="material-icons">code</i>Usage</button>  <button class="btn xl" id="e-btn"><i class="material-icons">visibility</i>Examples</button>
+<div id="s" class="bx">
+<dl>
+<dt>$(elem).t([content,]{<br/><br/></dt>  <dd></dd>
+<dt>delay:0,</dt>                         <dd>//start delay (s)</dd>
+<dt>speed:75,</dt>                        <dd>//typing speed (ms)</dd>
+<dt>|_ speed_vary:false,</dt>             <dd>//'human-like'</dd>
+<dt>beep:false,</dt>                      <dd>//beep while typing (<a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API" target="_blank">Web Audio API</a>)</dd>
+<dt>mistype:false,</dt>                   <dd>//mistype rate: 1:N per char</dd>
+<dt>|_ locale:'en',</dt>                  <dd>/*keyboard layout (to fit mistype)<br/>supported: 'en' (english) or 'de' (german)*/</dd>
+<dt>caret:true,</dt>                      <dd>/*caret; can be HTML; associated CSS class: .t-caret; default (TRUE): &#x258e; (<a href="https://en.wikipedia.org/wiki/Block_Elements" target="_blank">\u258e</a>)*/</dd>
+<dt>|_ blink:true,</dt>                   <dd>//blink-interval in ms; if TRUE, speed*3</dd>
+<dt>|_ blink_perm:false,</dt>             <dd>/*permanent blinking? if FALSE, caret blinks only on delay/pause/finish*/</dd>
+<dt>repeat:0,</dt>                        <dd>//repeat typing: if TRUE, infinite or N times</dd>
+<dt>tag:'span',</dt>                      <dd>//wrapper tag (.t-container, .t-caret)</dd>
+<dt>pause_on_click:false,</dt>            <dd>//pauses/continues typing on click/tap (elm)</dd>
+<dt><br/></dt><dd></dd>
+
+<dt style="width:60%;">init:function(elm){},<br/>typing:function(elm,chr_or_elm,left,total){},<br/>fin:function(elm){}</dt>
+<dd style="width:25%;">//Callbacks</dd>
+<dt><br/>});<br/><br/></dt><dd></dd>
+
+<dt style="width:60%;"><br/>$(elm).t('add',content)<br/>|_ shorthand: $(elm).a(content)<br/><br/>$(elm).t('pause'[,true/false])<br/>|_ shorthand: $(elm).p([true/false])</dt> <dd style="width:25%;">/*Methods:<br/>&#x25b6; adds content<br/>to elm<br/><br/>&#x25b6; pauses typing (toggles if 2nd param omitted)*/</dd>
+<dt><br/><dt><dd></dd>
+<dt style="width:60%;"><br/>$(elm).data().t<br/>$(elm).data().is_typing<br/>$(elm).data().paused</dt>
+<dd style="width:25%;">/*Data/properties:<br/>&#x25b6; TRUE if initialised<br/><span style="visibility:hidden;">&#x25b6; TRUE if</span> typing<br/><span style="visibility:hidden;">&#x25b6; TRUE if</span> paused*/</dd>
+
+
+</dl></div><div id="u" class="bx">
+<span><u>Got jQuery and t.js loaded?</u>
+
+ <code>*js* $(elm).t();</code>
+ |_ most basic usage; reads elm's <code>.html()</code>, types
+
+ <code>*js* $(elm).t({speed:30[,...]});</code>
+ |_ with custom settings
+
+ <code>*js* $(elm).t('text to type'[,{...}]);</code>
+ |_ types given string (2nd param: settings)
+
+<u>Add content / pause typing</u>
+
+ <code>*js* $(elm).t('add','&lt;br/&gt;new line added.');</code>
+      alt.: <code>$(elm).a(...);</code>
+ |_ adds content to non-paused/non-typing elm
+
+ <code>*js* $(elm).t('pause'[,bool]);</code>
+      alt.: <code>$(elm).p([bool]);</code>
+ |_ pauses typing (toggles if TRUE/FALSE omitted)
+
+<u>&lt;del&gt;, &lt;ins&gt; and &lt;kbd&gt;</u>
+Unlike other typewriter scripts, t.js provides an easy,
+tag-based solution to perform basic editing ops
+
+ <span class="c"><i class="material-icons">undo</i> Deleting</span>
+
+  <code>*html* Hello! &lt;del&gt;Moon&lt;/del&gt;Sun is up.</code>
+  |_ deletes 'Moon' (by default, t.js delays 0.25s before removing)
+
+  <code>*html* Hello! &lt;del&gt;Moon&lt;ins&gt;2&lt;/ins&gt;&lt;/del&gt;Sun is up.</code>
+  |_ custom del-delay: numeric-filled &lt;ins&gt; inside &lt;del&gt;
+
+  <code>*html* &lt;del&gt;Highlighted text&lt;s&gt;red,white&lt;/s&gt;&lt;/del&gt;</code>
+  |_ text selection: <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/s" target="_blank">&lt;s&gt;</a> inside &lt;del&gt;
+  (comma seperated background/forground values)
+
+  <code>*html* &lt;del&gt;*&lt;/del&gt;</code>
+  |_ '*' clears everything typed before
+  (still stored in case of <i class="material-icons">settings</i>repeating)
+
+  ---
+
+  Note:
+  Except <code>&lt;s&gt; and &lt;ins&gt;</code>, <code>&lt;del&gt;</code> doesn't handle nested HTML (kicked out)
  
+
+ <span class="c"><i class="material-icons">watch_later</i> Delaying/Inserting</span>
+
+  <code>*html* Please wait a few seconds..&lt;ins&gt;5.5&lt;/ins&gt;Thanks!</code>
+  |_ delays/pauses typing for five and a half second
+
+  <code>*html* Very &lt;ins&gt;fast delivery of &lt;u&gt;content&lt;/u&gt;&lt;/ins&gt; here.</code>
+  |_ non-numeric filled &lt;ins&gt;: inserts content instantly
+
+
+ <span class="c"><i class="material-icons">keyboard</i> Mistyping</span>
+ 
+  <code>*html* &lt;kbd&gt;typing errors here&lt;/kbd&gt;</code>
+  |_ will apply setting's <i class="material-icons">settings</i>mistype rate
+  (if <i class="material-icons">settings</i>mistype is defined, though no &lt;kbd&gt; occurrence,
+  mistyping extends to entire typing content - in reverse,
+  <i class="material-icons">settings</i>mistype will be set to 10)
+
+
+<u>Hints / Tips</u>
+
+<span class="g">*</span> Unset default styles with CSS:
+<code>*css* ins,del,s{text-decoration:none;} kbd{font-family:inherit;}</code>
+
+<span class="g">*</span> To avoid flashing of to-type-content on page load,
+it's recommended to set elm's style to
+<code>*css* {visibility:hidden;} or {display:none;}</code>
+(also, for block elements, it's recommended to set their
+<code>*css* display</code> property to <code>*css* inline-block</code>
+to keep caret fitting - if necessary)
+
+<span class="g">*</span> To avoid typing activity slow down on browser
+tab/window switch, just include <a href="https://github.com/turuslan/HackTimer" target="_blank">HackTimer</a> into your
+page (on top of all other scripts):
+
   <code>&lt;script type="text/javascript" src="HackTimer.min.js"&gt;&lt;/script&gt;
-&lt;script type="text/javascript" src="HackTimerWorker.min.js"&gt;&lt;/script&gt;</code>
+  &lt;script type="text/javascript" src="HackTimerWorker.min.js"&gt;&lt;/script&gt;</code>
+
+<span class="g">*</span> Event handlers: Use jQuery's <a href="https://api.jquery.com/on/" target="_blank">.on</a> to have event handlers
+(re)attached:
+
+<code>*js* $(document).on('click','#typing-elm #child_elm',
+function(){console.log('clicked!');});</code>
+
+<span class="g">*</span> <i class="material-icons">settings</i>pause_on_click and clickable child elms:
+To retain typing acitivity with activated <i class="material-icons">settings</i>pause_on_click
+when clicking specific child elms, just add
+<code style="background:#fff;color:#000;">data-click="1"</code> attribute to 'em
+
+<span class="g">*</span> To pause typing on inactive window/tab, just include:
+  <code>*js* $(window).on('blur focus',function(e){
+  if($(elm).data().is_typing)$(elm).p((e.type=='blur')?true:false);});</code>
+
+</span></div><div id="e" class="bx">
+<ul><li>Have something nice to contribute?
+Contact <a id="__e" href="mailto:%@mn.tn?subject=t.js/Examples">me</a>.</li><li></li><li></li>
+<li>######&lt;ins&gt;&lt;span id="pow-txt" style="display:none;color:tomato;"&gt;---[POW!]&lt;/span&gt;&lt;/ins&gt;
+##&lt;del&gt;\&lt;ins&gt;1.5&lt;/ins&gt;&lt;/del&gt;&lt;del id="pow-trigger"&gt;|&lt;/del&gt;\
+</li>
+<li>
+//Pow!
+
+$('#demo').t({
+ beep:true,
+ typing:function(elm,chr){
+
+   if(chr.match(/\-trigger/))
+     $('#pow-txt').show().delay(500).fadeOut(0);
+  
+ }
+});</li>
 
 
-<strong>Typed elements: <em>Events</em></strong>
-
-<i class="material-icons">info</i> Use jQuery's <em><a class="a" target="_blank" href="//api.jquery.com/on/">.on</a></em> to get event handlers (re)attached;
-e.g., <code>$(document).on('click','#typing-elem #child_elem',function(){console.log('clicked!');});</code>
-
-
-<strong>pause_on_click and <em>clickable</em> child elems</strong>
-
-<i class="material-icons">info</i> To retain typing acitivity with activated <code><i class="material-icons">settings</i>pause_on_click</code> when clicking specific
-child elems, just add <code>data-click="1"</code> attribute to 'em
-
-
-<strong><a class="a" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Block-level_elements" target="_blank">Block-level elements</a> and caret</strong>
-
-<i class="material-icons">info</i> In somes cases, it's advisable to set regarding elements' CSS to <code>{display:<strong>inline-</strong>block;}</code> to keep caret fitting
-
-
-<strong>Pause typing on inactive window/tab</strong>
-
-<i class="material-icons">info</i> Add this to your page:
-
-<code>$(window).on('blur focus',function(e){
-if($(<em>elm</em>).data().is_typing)$(<em>elm</em>).t('pause',(e.type=='blur')?true:false);
-});</code>
-
-
-<strong>Workaround: custom (delay) inserts, sub dels inside <code>&lt;del&gt;</code></strong>
-
-<i class="material-icons">info</i>  See <a class="a" href="//mntn-dev.github.io/t.js/del-hack.htm" target="_blank">t-hack.htm</a>.
-
-
-
-</span>
-
-</pre>
-
-
-</article>
-
-
-
-<article id="d">
-
-<h1 id="e__">Examples</h1>
-
-
-<div>
-
-<pre id="demo_1" class="vt323">
-<del>~~~~~~~~~~~~~~~</del>
-<ins>Microsoft(R) Windows 98
+<li></li>
+<li>&lt;del&gt;~~~~~~~~~~~~&lt;/del&gt;
+&lt;ins&gt;Microsoft(R) Windows 98
     (C)Copyright Microsoft Corp 1981-1998
-    <hr/>
-    
-c:\&gt;</ins><ins>2</ins><kbd>cd tools</kbd>
-<ins>c:\tools&gt;</ins><ins>1</ins><kbd>weather.exe "miami, fl" -txt</kbd>
-Connecting
-<ins>1.5</ins>...<ins>2</ins>....
-It's a <del>rainy</del>sunny day in <span style="color:hotpink;">Miami, FL.</span> <span class="spnnr" style="color:gold;display:inline-block;">&#9728;</span>
-<ins>c:\tools&gt;</ins></pre>
+    &lt;hr/&gt;
 
-<code>$('#demo_1').t({
-blink:300,
-caret:'<span style="color:blue;">\u2589</span>',
-pause_on_click:true
-});
-</code>
+c:\&gt;&lt;/ins&gt;&lt;ins&gt;2&lt;/ins&gt;&lt;kbd&gt;cd tools&lt;/kbd&gt;
+&lt;ins&gt;c:\tools&gt;&lt;/ins&gt;&lt;ins&gt;1&lt;/ins&gt;&lt;kbd&gt;weather.exe -"miami, fl"&lt;/kbd&gt;
+&lt;ins&gt;&lt;span style="color:skyblue;"&gt;WEATHER(R)&lt;/span&gt;&lt;/ins&gt;
+&lt;ins&gt;Connecting&lt;/ins&gt;.&lt;ins&gt;2&lt;/ins&gt;...
+&lt;ins id="__caret"&gt;&lt;span style="color:blue"&gt;&#x2219;&#x2219;&#x2219;&lt;/span&gt;&lt;span style="color:gold"&gt;&#x2022;Sunny&lt;/span&gt;, 99 F
 
-</div>
+c:\tools&gt;&lt;/ins&gt;</li>
+<li>
+//weather.exe
 
-
-
-
-
-<div>
-
-<pre id="demo_2"><kbd>Hello world!</kbd> I'm <del><s>pink,white</s>dyping</del>typing.</pre>
-
-<code>$('#demo_2').t({
-speed:90,
-blink:300,
-typing:function(e,char,chars_left,chars_total){
- e.prev('h2').text(~~(100-(((chars_left/chars_total)*100)))+'%');
-},
-fin:function(e){setTimeout(function(){e.prev('h2').text('#2')},500);}
-});
-</code>
-
-</div>
-
-
-<div>
-
-<pre id="demo_3">
-</pre>
-
-<code>
-if(/down/.test($('#c_').text()))$('#c_').trigger('click');
-$('html').animate({scrollTop:(~~$('#c__').offset().top)-100},1500);
-
-/*-------------*/
-
-$('#c__').t({ /*'setup' part*/
-delay:2,
-caret:'<span style="color:hotpink;">\u2589</span>',
-pause_on_click:true
-});
-</code>
-
-</div>
-
-<div>
-
-<pre id="demo_4">
-Tickin'
-</pre>
-
-<code>var txt=[
-'Lawsuit Filed in Death of 72-Year-Old Grandfather',
-'Dodgers <a href="//sf.gov" class="a" target="_blank" data-click="1">S.F.</a> Struggles Continue in Blowout Loss to Giants',
-'Ramona Woman, Unborn Child Die in Mother\'s Day Crash'
-].join(d='<ins>1</ins><del>*</del>')+d;
-
-
-$('#demo_4').t(txt,
-{repeat:true,
-speed:30,
-mistype:20,
-caret:'\u2593',
-blink:100,
-pause_on_click:true // data-click="1" attr in &lt;a&gt; prevents pause on click/tap
-});</code>
-
-</div>
-
-
-<div>
-
-<pre id="demo_5" class="vt323">
-#######<ins><span id="pow-txt" style="display:none;color:tomato;">---[POW!]</span></ins>
-##<del>\<ins>1.5</ins></del><del id="pow-trigger">|</del>\
-</pre>
-
-<code>
-$('#pow-txt').hide();
-
-$('#demo_5').t({typing:function(elm,chr){
-if(chr.match(/\-trigger/))$('#pow-txt').show();
-
-}});
-
-</code>
-
-</div>
+$('#demo').t({
+mistype:7,
+pause_on_click:true,
+typing:function(elm,chr){
+ if(chr.match(/skyblue/))
+  elm.find('.t-caret').hide();
+ else if(chr.match(/__caret/))
+  elm.find('.t-caret').show();
+}
+});</li>
 
 
 
+<li></li>
+<li>&lt;span id="s_bar" style="display:block;height:20px;width:0;background-image:linear-gradient(90deg,yellow,gold);"&gt;&lt;/span&gt;
+&lt;a href="https://en.wikipedia.org/wiki/Rick_Rubin" target="_blank"&gt;Rick Rubin&lt;/a&gt; is an American record producer and
+former co-president of &lt;a href="https://en.wikipedia.org/wiki/Columbia_Records" target="_blank"&gt;Columbia Records&lt;/a&gt;.
+&lt;ins&gt;.5&lt;/ins&gt;&lt;ins&gt;&lt;span style="color:gold;"&gt;$&lt;/span&gt; Loading "RickRubinSept09.jpg"&lt;/ins&gt;&lt;ins&gt;2&lt;/ins&gt;
 
-<div>
-
-<pre id="demo_6">
-</pre>
-
-<code>
-if($('#demo_6').data().t) //initialised?
- $('#demo_6').t('add','<br/>'+(~~(Math.random()*1e7)));
-else
- $('#demo_6').t('<strong>Yay.</strong>',{speed:45,speed_vary:true});
+&lt;span id="rr-100" style="background-image:url(https://upload.wikimedia.org/wikipedia/commons/4/43/RickRubinSept09.jpg);background-size:cover;display:inline-block;height:0;width:100px;"&gt;&lt;/span&gt;
 
 
-</code>
 
-</div>
+</li>
 
-<br/><br/>
-<a class="_0 a" rel="next" title="z.js — turns content (in)visible*" href="https://mntn-dev.github.io/z.js/">&rarr; z.js</a><br/>
+<li>
+//RickRubin&trade;
 
-</article>
+$('#rr-100').css({height:0});
 
+$('#demo').t({
+
+speed:20,
+
+typing:function(elm,chr,left,total){
+  $('#s_bar').css({width:(left*100)/total});
+  
+  if(chr.match('rr\-100')){
+   $(elm).p(); //pause
+   $(elm).find('.t-caret').hide();
+   pi=setInterval(function(){
+       (i=$(elm).find('#rr-100')).css({height:'+=10'});
+       if(i.height()==100){
+         $(elm).find('.t-caret').show();
+         $(elm).p();clearInterval(pi);
+         }},4e2,elm,i);
+
+  }
+  
+}
+
+});</li>
+
+
+
+</ul></div>
+</ins>
+
+
+<h1 style="border-bottom:3px solid #0f0;">t.<del>k<ins>1</ins></del>js (v1.0/Feb 21, 2018)</h1>
+A <kbd>lightweight</kbd> (~2.9<del>MB<ins>1.5</ins></del>KB gzipped+minified) $.Typewriter script with nice features, <ins><i class="material-icons">star</i></ins>'ed <span id="github-stars"><ins><i class="spnnr material-icons">loop</i></ins></span> times at <a target="_blank" href="https://github.com/mntn-dev/t.js">&#x25b6;Github</a>.
+
+<ins>&copy;2014-2018 &mdash; Mntn&reg; <span class="o">&lt;https://mn.tn/&gt;</span></ins><ins>1</ins>
+<ins>c/o Benjamin Lips <span class="o">&lt;g--[AT]--mn.tn&gt;</span></ins><ins>1</ins>
+<ins>*MIT-Licensed <span class="o">&lt;https://mit-license.org/&gt;</span></ins><ins>1</ins>
+
+<a class="btn" href="https://raw.githubusercontent.com/mntn-dev/t.js/master/t.min.js" target="_blank" title="v1.0"><ins><i class="material-icons">description</i></ins>t.min.js</a>   <a class="btn" href="https://raw.githubusercontent.com/mntn-dev/t.js/master/t.js" target="_blank" title="v1.0"><ins><i class="material-icons">description</i></ins>t.js</a>   <a class="btn" href="https://github.com/mntn-dev/t.js/archive/master.zip" target="_blank" title="includes demo.htm"><ins><i class="material-icons">archive</i></ins>zip bundle</a>
+
+
+t.js fully supports <abbr title="Hypertext Markup Language">HTML</abbr>, yet provides special
+features to some tags, like:
+<ins>1.5</ins><span class="g"><ins><i class="material-icons">keyboard</i></ins></span> <kbd>mistyping</kbd> (<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/kbd" target="_blank">&lt;kbd&gt;</a>)
+<span class="g"><ins><i class="material-icons">undo</i></ins></span> de<del>ltng<ins>1.5</ins></del>leti<del>nng<ins>1</ins><s>yellow,#00f</s></del>ng (<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/del" target="_blank">&lt;del&gt;</a>)
+<span class="g"><ins><i class="material-icons">watch_later</i></ins></span> delaying<ins>4</ins> (numeric-filled <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ins" target="_blank">&lt;ins&gt;</a>)
+<span class="g"><ins><i class="material-icons">content_paste</i></ins></span> <ins><u>ins</u>tant</ins><ins>.5</ins> <ins><u>ins</u>erting</ins> (non-numeric &lt;ins&gt;)
 
 </section>
 
-&nbsp;
-
-<div id="b"></div>
-
+<br/>
 
 </body>
 
+
 </html>
+
+
