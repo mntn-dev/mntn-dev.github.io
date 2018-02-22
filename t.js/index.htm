@@ -147,7 +147,7 @@ $(function(){
  }).on('click','.btn2',function(){/*examples-btns*/
       __=$(this).parent().prev().prev();if(!__.data('o'))__.html(__.html().replace(/&lt;/g,'<').replace(/&gt;/g,'>')).css({maxHeight:'100%'}).data('o',1);
       _=$(this).parent().html().replace(/<.*?>/g,'').replace(/&lt;/g,'<').replace(/&gt;/g,'>').match(/(\$[\s\S]+\);)/);
-      $('html').stop().animate({scrollTop:__.offset().top-75},2e2);eval(_[0]);
+      $('html').stop().animate({scrollTop:__.offset().top-75},{duration:2e2,complete:function(){eval(_[0]);}});
          
  });
 
