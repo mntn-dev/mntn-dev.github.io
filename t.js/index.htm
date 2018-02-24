@@ -139,9 +139,6 @@ var box_opened=!1;
 $(function(){
 
 
- $('#__e').attr('href',$('#__e').attr('href').replace(/%/,'g'));
-
-
  $(document).on('click','#s-btn,#u-btn,#e-btn',function(){/*boxes*/
   box_opened=!!1;__=!1;_=$('#'+$(this).attr('id').substr(0,1));if(_.is(':visible')){$('.bx').hide();p=!1;}else{$('.bx').hide();_.show();p=!!1;}$('#t').p(p);
  }).on('click','.btn2',function(){/*examples-btns*/
@@ -163,11 +160,11 @@ $(function(){
   $(this).html($(this).html().
    replace(/('[\s\S]*?'|"[\s\S]*?")/g,'<mark class="_s">$1</mark>').
    replace(/(&lt;[\s\S]*?&gt;)/g,'<mark class="_t">$1</mark>').
-   replace(/>(\d+\.*\d*|\.\d+)/g,'><mark class="_n">$1</mark>').
    replace(/[^:](\/\/[\s\S]*?[\n\r])/g,'<mark class="_c">$1</mark>').
    replace(/([\(\)\]\[\,\:\{\}])/g,'<mark class="_p">$1</mark>').
    replace(/(true|false|\!\!1|\!1)/gi,'<mark class="_b">$1</mark>').
    replace(/\|_ /g,'<i class="material-icons g">subdirectory_arrow_right</i>').
+   replace(/>(\d+\.*\d*|\.\d+)/g,'><mark class="_n">$1</mark>').
    replace(/\*html\*/g,'<span class="html">HTML</span>').
    replace(/\*js\*/g,'<span class="js">JS</span>').
    replace(/\*css\*/g,'<span class="css">CSS</span>'));
@@ -358,8 +355,7 @@ when clicking specific child elms, just add
   if($(elm).data().is_typing)$(elm).p((e.type=='blur')?true:false);});</code>
 
 </span></div><div id="e" class="bx">
-<ul><li>Have something nice to contribute?
-Contact <a id="__e" href="mailto:%@mn.tn?subject=t.js/Examples">me</a>.</li><li></li><li></li>
+<ul><li>(Also, see <a href="https://rawgit.com/mntn-dev/t.js/master/demo.htm" target="_blank">demo.htm</a>)</li><li></li><li></li>
 <li>######&lt;ins&gt;&lt;span id="pow-txt" style="display:none;color:tomato;"&gt;---[POW!]&lt;/span&gt;&lt;/ins&gt;
 ##&lt;del&gt;\&lt;ins&gt;1.5&lt;/ins&gt;&lt;/del&gt;&lt;del id="pow-trigger"&gt;|&lt;/del&gt;\
 </li>
@@ -477,5 +473,4 @@ features to some tags, like:
 
 
 </html>
-
 
