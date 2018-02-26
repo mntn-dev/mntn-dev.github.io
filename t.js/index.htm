@@ -11,7 +11,7 @@
 <meta name="robots" content="nosnippet,noarchive,notranslate"/>
 <meta name="keywords" content="jquery,t.js,typewriter,text,javascript,plugin,typography,html tags"/>
 <meta name="description" content=""/>
-
+  
 
 <meta property="og:type" content="website"/>
 <meta property="og:title" content="t.js"/>
@@ -88,7 +88,10 @@ h1,.xl{font-size:3vw;line-height:3.5vw;}
 #e-btn-k{background:tomato;}
 
 
-@media(max-width:800px){#t{width:500px;margin-left:-250px;}}
+@media(max-width:800px){
+ #t{width:500px;margin-left:-250px;}
+ .html,.js,.css{padding:2px;top:-1px;}
+ }
 
 
 
@@ -164,7 +167,7 @@ $(function(){
    replace(/([\(\)\]\[\,\:\{\}])/g,'<mark class="_p">$1</mark>').
    replace(/(true|false|\!\!1|\!1)/gi,'<mark class="_b">$1</mark>').
    replace(/\|_ /g,'<i class="material-icons g">subdirectory_arrow_right</i>').
-   replace(/>(\d+\.*\d*|\.\d+)/g,'><mark class="_n">$1</mark>').
+   replace(/>(\d+[\.e]?\d*|\.\d+)/g,'><mark class="_n">$1</mark>').
    replace(/\*html\*/g,'<span class="html">HTML</span>').
    replace(/\*js\*/g,'<span class="js">JS</span>').
    replace(/\*css\*/g,'<span class="css">CSS</span>'));
