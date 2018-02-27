@@ -147,8 +147,8 @@ $(function(){
   box_opened=!!1;__=!1;_=$('#'+$(this).attr('id').substr(0,1));if(_.is(':visible')){$('.bx').hide();p=!1;}else{$('.bx').hide();_.show();p=!!1;}$('#t').p(p);
  }).on('click','.btn2',function(){/*examples-btns*/
       __=$(this).parent().prev().prev();if(!__.data('o'))__.html(__.html().replace(/&lt;/g,'<').replace(/&gt;/g,'>')).css({maxHeight:'100%'}).data('o',1);
-      _=$(this).parent().html().replace(/<.*?>/g,'').replace(/&lt;/g,'<').replace(/&gt;/g,'>').match(/(\$[\s\S]+\);)/);
-      $('html').stop().animate({scrollTop:__.offset().top-75},{duration:2e2,complete:function(){eval(_[0]);}});
+      _=$(this).parent().html().replace(/<.*?>/g,'').replace(/&lt;/g,'<').replace(/&gt;/g,'>').match(/(var[\s\S]+\);)|(\$[\s\S]+\);)/);
+      $('html').stop().animate({scrollTop:__.offset().top-75},{duration:2e2,complete:function(){eval(_[0]);}});/*Run*/
          
  });
 
@@ -447,6 +447,25 @@ typing:function(elm,chr,left,total){
 
 });</li>
 
+<li></li>
+
+
+<li></li>
+<li>
+//simple tickr
+
+var tickr=[
+'Hello world.',
+'&lt;em&gt;Did you know?&lt;/em&gt; &lt;a target="_blank" href="https://mntn-dev.github.io/z.js/"&gt;z.js&lt;/a&gt; is FTW!1',
+'Foo, &lt;strong&gt;&lt;u&gt;&lt;em&gt;&lt;del style="color:yellow;"&gt;foo&lt;/del&gt;moo&lt;/em&gt;&lt;/u&gt;&lt;/strong&gt;, foo.'
+];
+
+$('#demo').t(
+tickr.join(x='&lt;ins&gt;2&lt;/ins&gt;&lt;del&gt;*&lt;/del&gt;')+x,
+{speed:20,repeat:true}
+);</li>
+
+
 
 
 </ul></div>
@@ -478,4 +497,3 @@ t.js fully supports <abbr title="Hypertext Markup Language">HTML</abbr>, yet pro
 
 
 </html>
-
