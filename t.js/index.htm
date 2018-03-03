@@ -132,7 +132,7 @@ li:nth-child(3n){width:75%;margin:50px 0 50px 0;}
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> <!-- v3.3.1 -->
-<script src="https://rawgit.com/mntn-dev/t.js/master/t.min.js"></script>    <!--v1.0-->
+<script src="https://rawgit.com/mntn-dev/t.js/master/t.min.js"></script>    <!--v1.1-->
 
 
 <script type="text/javascript">
@@ -235,13 +235,13 @@ $(function(){
 <dl>
 <dt>$(elem).t([content,]{<br/><br/></dt>  <dd></dd>
 <dt>delay:0,</dt>                         <dd>//start delay (s)</dd>
-<dt>speed:75,</dt>                        <dd>//typing speed (ms)</dd>
+<dt>speed:50,</dt>                        <dd>//typing speed (ms)</dd>
 <dt>|_ speed_vary:false,</dt>             <dd>//'human-like'</dd>
 <dt>beep:false,</dt>                      <dd>//beep while typing (<a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API" target="_blank">Web Audio API</a>)</dd>
 <dt>mistype:false,</dt>                   <dd>//mistype rate: 1:N per char</dd>
 <dt>|_ locale:'en',</dt>                  <dd>/*keyboard layout (to fit mistype)<br/>supported: 'en' (english) or 'de' (german)*/</dd>
 <dt>caret:true,</dt>                      <dd>/*caret; can be HTML; associated CSS class:<br/>.t-caret; default (TRUE): &#x258e; (<a href="https://en.wikipedia.org/wiki/Block_Elements" target="_blank">\u258e</a>)*/</dd>
-<dt>|_ blink:true,</dt>                   <dd>//blink-interval in ms; if TRUE, speed*3</dd>
+<dt>|_ blink:true,</dt>                   <dd>//blink-interval in ms (min: 100); if TRUE, speed*3</dd>
 <dt>|_ blink_perm:false,</dt>             <dd>/*permanent blinking? if FALSE, caret blinks only on delay/pause/finish*/</dd>
 <dt>repeat:0,</dt>                        <dd>//repeat typing: if TRUE, infinite or N times</dd>
 <dt>tag:'span',</dt>                      <dd>//wrapper tag (.t-container, .t-caret)</dd>
@@ -472,14 +472,14 @@ tickr.join(x='&lt;ins&gt;2&lt;/ins&gt;&lt;del&gt;*&lt;/del&gt;')+x,
 </ins>
 
 
-<h1 style="border-bottom:3px solid #0f0;">t.<del>k<ins>1</ins></del>js (v1.0/Feb 21, 2018)</h1>
+<h1 style="border-bottom:3px solid #0f0;">t.<del>k<ins>1</ins></del>js (v1.1/Mar 3, 2018)</h1>
 A <kbd>lightweight</kbd> (~2.9<del>MB<ins>1.5</ins></del>KB gzipped+minified) $.Typewriter script with nice features,<br/><ins><i class="material-icons">star</i></ins>'ed <span id="github-stars"><ins><i class="spnnr material-icons">loop</i></ins></span> times at <a target="_blank" href="https://github.com/mntn-dev/t.js">&#x25b6;Github</a>.
 
 <ins>&copy;2014-2018 &mdash; Mntn&reg; <span class="o">&lt;https://mn.tn/&gt;</span></ins><ins>1</ins>
 <ins>c/o Benjamin Lips <span class="o">&lt;g--[AT]--mn.tn&gt;</span></ins><ins>1</ins>
 <ins>*MIT-Licensed <span class="o">&lt;https://mit-license.org/&gt;</span></ins><ins>1</ins>
 
-<a class="btn" href="https://raw.githubusercontent.com/mntn-dev/t.js/master/t.min.js" target="_blank" title="v1.0"><ins><i class="material-icons">description</i></ins>t.min.js</a>   <a class="btn" href="https://raw.githubusercontent.com/mntn-dev/t.js/master/t.js" target="_blank" title="v1.0"><ins><i class="material-icons">description</i></ins>t.js</a>   <a class="btn" href="https://github.com/mntn-dev/t.js/archive/master.zip" target="_blank" title="includes demo.htm"><ins><i class="material-icons">archive</i></ins>zip bundle</a>
+<a class="btn" href="https://raw.githubusercontent.com/mntn-dev/t.js/master/t.min.js" target="_blank" title="v1.1"><ins><i class="material-icons">description</i></ins>t.min.js</a>   <a class="btn" href="https://raw.githubusercontent.com/mntn-dev/t.js/master/t.js" target="_blank" title="v1.1"><ins><i class="material-icons">description</i></ins>t.js</a>   <a class="btn" href="https://github.com/mntn-dev/t.js/archive/master.zip" target="_blank" title="includes demo.htm"><ins><i class="material-icons">archive</i></ins>zip bundle</a>
 
 
 t.js fully supports <abbr title="Hypertext Markup Language">HTML</abbr>, yet provides special
