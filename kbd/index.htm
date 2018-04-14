@@ -62,7 +62,7 @@ code,code *{font-family:'roboto mono';}
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://rawgit.com/mntn-dev/kbd/master/kbd.js"></script>  <!-- $.kbd-0.1 -->
+<script src="https://rawgit.com/mntn-dev/kbd/master/kbd.js"></script>  <!-- $.kbd-0.2 -->
 
 
 <script type="text/javascript">
@@ -76,7 +76,7 @@ var t=0;
 
 function input_cb(c){
 
-if(c==$.BS/*backspace*/)return($('#txt pre').text($('#txt pre').text().slice(0,-1)));
+if(c==$.BS/*backspace*/){t=1;return($('#txt pre').text($('#txt pre').text().slice(0,-1)));}
 $('#txt pre').append((c==$.OK)?'\n':c);
 
 t=1;
@@ -114,7 +114,7 @@ setInterval(function(){if(t<0)$('#txt span').toggle();else{$('#txt span').show()
 
 <body>
 
-<div id="txt"><pre>$.kbd is a lightweight (~1.7kb minified+gzipped), responsive jQuery.Keyboard plugin</pre><span>|</span></div>
+<div id="txt"><pre>$.kbd is a lightweight (~2kb minified+gzipped), responsive jQuery.Keyboard plugin</pre><span>|</span></div>
 
 
 
@@ -152,7 +152,7 @@ setInterval(function(){if(t<0)$('#txt span').toggle();else{$('#txt span').show()
 
 
 <div id="nfo">
-&#9000; <strong>$.kbd</strong> (v0.1/Apr 2018)
+&#9000; <strong>$.kbd</strong> (v0.2/Apr 2018)
 <a href="https://github.com/mntn-dev/kbd/" target="_blank">@mntn-dev/kbd</a>
 
 ^ &copy;2018 - Mntn&reg; &lt;https://mn.tn/&gt;
