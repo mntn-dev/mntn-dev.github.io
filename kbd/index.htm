@@ -63,7 +63,7 @@ code,code *{font-family:'roboto mono';}
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://rawgit.com/mntn-dev/kbd/master/kbd.js"></script>  <!-- $.kbd-0.2 -->
+<script src="https://rawgit.com/mntn-dev/kbd/master/kbd.js"></script>  <!-- $.kbd-0.3 -->
 
 
 <script type="text/javascript">
@@ -77,7 +77,7 @@ var t=0;
 
 function input_cb(c){
 
-if(c==$.BS/*backspace*/){t=1;return($('#txt pre').text($('#txt pre').text().slice(0,-1)));}
+if(c==$.BS/*backspace*/){t=1;$('#txt pre').text($('#txt pre').text().slice(0,-1));return;}
 $('#txt pre').append((c==$.OK)?'\n':c);
 
 t=1;
@@ -141,6 +141,9 @@ setInterval(function(){if(t<0)$('#txt span').toggle();else{$('#txt span').show()
 <button onclick="$.kbd.alt(true);" title="ABC&rarr;123">$.kbd.alt(<span style="color:tomato;">true</span>)</button>
 <button onclick="$.kbd.alt(false);" title="123&rarr;ABC">$.kbd.alt(<span style="color:tomato;">false</span>)</button>
 <button onclick="$.kbd.alt();" title="toggle 123/ABC">$.kbd.alt()</button>
+<br/>
+<button onclick="$.kbd.lock();" title="locks kbd">$.kbd.lock([true])</button>
+<button onclick="$.kbd.lock(false);" title="unlock">$.kbd.lock(false)</button>
 
 
 <br/>
