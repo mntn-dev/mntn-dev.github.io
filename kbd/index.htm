@@ -47,7 +47,7 @@ position:absolute;background:lightyellow;padding:10%;padding-top:15%;width:40%;h
 #txt span{color:cyan;}
 
 
-#ops{z-index:999;position:absolute;top:3%;left:50%;width:600px;margin-left:-300px;height:auto;font-size:1vw;line-height:1vw;}
+#ops{font-size:1vw;line-height:1vw;}
 #ops button{background:white;border:1px solid #999;border-radius:5px;padding:5px;margin-bottom:5px;}
 #ops button:hover{background:#fafafa;}#ops button:active{background:#111;color:white;}
 
@@ -116,12 +116,8 @@ setInterval(function(){if(t<0)$('#txt span').toggle();else{$('#txt span').show()
 
 <body>
 
-<div id="txt"><pre>$.kbd is a lightweight (~2kb minified+gzipped), responsive jQuery.Keyboard plugin</pre><span>|</span></div>
-
-
-
-
-
+<div id="txt">
+ 
 <div id="ops">
 
 <strong>Methods:</strong>
@@ -152,6 +148,12 @@ setInterval(function(){if(t<0)$('#txt span').toggle();else{$('#txt span').show()
 <strong>Vars: $.OK</strong> (Return/Enter), <strong>$.BS</strong> (Backspace)
 
 </div>
+ 
+ <pre>$.kbd is a lightweight (~2kb minified+gzipped), responsive jQuery.Keyboard plugin</pre><span>|</span></div>
+
+
+
+
 
 
 
