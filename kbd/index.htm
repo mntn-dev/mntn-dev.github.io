@@ -40,7 +40,7 @@ html{height:100%;width:100%;}
 
 
 #txt{
-position:absolute;background:lightyellow;padding:10%;padding-top:15%;width:40%;height:80%;left:0;top:0;font-size:3vw;line-height:3vw;
+position:absolute;background:lightyellow;padding:10%;padding-top:3%;width:40%;height:80%;left:0;top:0;font-size:3vw;line-height:3vw;
 -webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;
 }
 #txt pre{white-space:pre-wrap;word-wrap:break-word;display:inline;}
@@ -50,7 +50,7 @@ position:absolute;background:lightyellow;padding:10%;padding-top:15%;width:40%;h
 #ops,#ops *{font-size:0.75vw;}
 #ops button{background:#fff;border:1px solid #999;border-radius:5px;padding:5px;margin-bottom:5px;}
 #ops button:hover{background:#fafafa;}
- #ops button:active{background:#111;color:#fff;}
+#ops button:active{background:#111;color:#fff;}
 
 
 #nfo{position:absolute;left:60%;padding:10%;padding-top:3%;width:20%;height:100%;background:aquamarine;white-space:pre-wrap;font-size:1.1vw;line-height:1.25vw;}
@@ -125,18 +125,18 @@ setInterval(function(){if(t<0)$('#caret').toggle();else{$('#caret').show();--t}}
 
 <button onclick="$.kbd.show();">$.kbd.show()</button>
 <button onclick="$.kbd.hide();">$.kbd.hide()</button>
- /
+ &nbsp;/&nbsp; 
 <button onclick="$.kbd.white();" title="white kbd">$.kbd.white([<span style="color:tomato;">true</span>])</button>
 <button onclick="$.kbd.white(false);" title="=black">$.kbd.white(<span style="color:tomato;">false</span>)</button>
- /
+&nbsp;/&nbsp; 
 <button onclick="$.kbd.caps(true);" title="longpress: permanent caps">$.kbd.caps(<span style="color:tomato;">true</span>)</button>
 <button onclick="$.kbd.caps(false);" title="unset permanent caps">$.kbd.caps(<span style="color:tomato;">false</span>)</button>
 <button onclick="$.kbd.caps();" title="1-time-caps toggle / unset permanent caps">$.kbd.caps()</button>
- /
+&nbsp;/&nbsp; 
 <button onclick="$.kbd.alt(true);" title="ABC&rarr;123">$.kbd.alt(<span style="color:tomato;">true</span>)</button>
 <button onclick="$.kbd.alt(false);" title="123&rarr;ABC">$.kbd.alt(<span style="color:tomato;">false</span>)</button>
 <button onclick="$.kbd.alt();" title="toggle 123/ABC">$.kbd.alt()</button>
- /
+&nbsp;/&nbsp; 
 <button onclick="$.kbd.lock();" title="locks kbd">$.kbd.lock([<span style="color:tomato;">true</span>])</button>
 <button onclick="$.kbd.lock(false);" title="unlock">$.kbd.lock(<span style="color:tomato;">false</span>)</button>
 
