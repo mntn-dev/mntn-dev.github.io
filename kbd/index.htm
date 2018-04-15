@@ -47,7 +47,7 @@ position:absolute;background:lightyellow;padding:10%;padding-top:15%;width:40%;h
 #txt #caret{color:cyan;}
 
 
-#ops{font-size:0.75vw;line-height:0.75vw;}
+#ops,#ops *{font-size:0.75vw;line-height:0.75vw;}
 #ops button{background:white;border:1px solid #999;border-radius:5px;padding:5px;margin-bottom:5px;}
 #ops button:hover{background:#fafafa;}#ops button:active{background:#111;color:white;}
 
@@ -146,9 +146,10 @@ setInterval(function(){if(t<0)$('#caret').toggle();else{$('#caret').show();--t}}
 <br/>
 
 <strong>Vars: $.OK</strong> (Return/Enter), <strong>$.BS</strong> (Backspace)
-<br/><br/>
+
 </div>
  
+ <br/><br/>
  <pre>$.kbd is a lightweight (~2kb minified+gzipped), responsive jQuery.Keyboard plugin</pre><span id="caret">|</span>
  
  </div>
