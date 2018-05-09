@@ -92,11 +92,12 @@ t=1;
 $(function(){
 
 $.kbd({
-qwertz:false,
-input:input_cb,
-white:true,
-hidden:true,
-coffee:false
+ qwertz:false,
+ toggle_btn:false,
+ input:input_cb,
+ white:true,
+ hidden:true,
+ coffee:false
 });
 
 
@@ -160,7 +161,7 @@ setInterval(function(){if(t<0)$('#caret').toggle();else{$('#caret').show();--t}}
 
 
 <div id="nfo">
-&#9000; <strong>$.kbd</strong> (v0.4/Apr 2018)
+&#9000; <strong>$.kbd</strong> (v0.5/May 2018)
  <a href="https://github.com/mntn-dev/kbd/" target="_blank">@mntn-dev/kbd</a> (Demo pages: <a href="https://rawgit.com/mntn-dev/kbd/master/demo.htm" title="demo.htm" target="_blank">1</a> / <a href="https://rawgit.com/mntn-dev/kbd/master/demo-input-elm.htm" title="demo-input-elm.htm" target="_blank">2</a>)
 
 ^ &copy;2018 - Mntn&reg; &lt;https://mn.tn/&gt;
@@ -174,6 +175,8 @@ setInterval(function(){if(t<0)$('#caret').toggle();else{$('#caret').show();--t}}
  <span class="b">//keyboard theme (def.: false(=black))</span>
  qwertz:<span class="x">false</span>,
  <span class="b">//layout (def.: false(=<em>qwerty</em>))</span>
+ toggle_btn:<span class="x">false</span>,
+ <span class="b">//adds button to show/hide keyboard</span>
  hidden:<span class="x">false</span>,
  <span class="b">//just init, don't show</span>
  input:<strong>function(char){</strong>[...]<strong>}</strong>,
