@@ -10,7 +10,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 
 <meta name="robots" content="nosnippet,noarchive,notranslate"/>
-<meta name="keywords" content="jellygummies,windows,app,desktop,gif,animation"/>
+<meta name="keywords" content="jellygummies,sam lyon,windows,app,desktop,gif,animation"/>
 <meta name="description" content=""/>
   
   
@@ -18,48 +18,119 @@
 <meta property="og:title" content="Jellygummies on the Windows&reg; Desktop"/>
 <meta property="og:url" content="https://mntn-dev.github.io/Jellygummies/"/>
 <meta property="og:description" content="🌞🍄🌚🍞👺"/>
-<meta property="og:image" content="https://mntn-dev.github.io/Jellygummies/Jellygummies-og.jpg"/>
+<meta property="og:image" content="https://mntn-dev.github.io/Jellygummies/og.jpg"/>
 
-<link rel="shortcut icon" href="https://mntn-dev.github.io/favicon.ico?v2"/>
+<link rel="shortcut icon" href="favicon.ico"/>
 
 
 
-<title>🌚 Jellygummies on the Windows&reg; Desktop</title>
+<title>Jellygummies on the Windows&reg; Desktop</title>
 
 <style type="text/css">
 <!--
 
 
 @font-face{font-family:'c';src:url(https://mntn-dev.github.io/_/chicagoflf.ttf) format('truetype');}
-*{cursor:default;padding:0;margin:0;outline:0;font-family:c;font-size:2.5vw;line-height:3vw;
+*{cursor:default;padding:0;margin:0;outline:0;font-family:c;font-size:20px;line-height:23px;
 -moz-user-select:none;-ms-user-select:none;-khtml-user-select:none;-webkit-user-select:none;-webkit-touch-callout:none;}
 
-a{color:tomato;text-decoration:none;border-bottom:3px solid white;}
+a{text-decoration:none;border-bottom:3px solid hotpink;cursor:pointer!important;}
 
  
 html{ 
-background:#111 url(https://raw.githubusercontent.com/mntn-dev/mntn-dev.github.io/master/_/jellygummies-windows-desktop.gif) no-repeat center center fixed; 
--webkit-background-size:cover;
+background:#000;
+/*-webkit-background-size:cover;
 -moz-background-size:cover;
 -o-background-size:cover;
-background-size:cover;
+background-size:cover;*/
 height:100%;
+width:auto;
 }
+
+#b{position:fixed;top:0;left:0;height:100%;width:100%;background:linear-gradient(45deg,magenta,cyan);}
+#w{position:fixed;bottom:0;width:100%;height:50px;background:linear-gradient(90deg,#000,#333);opacity:0.5;}
+
+
+#exe{
+display:inline-block;
+}
+
+#g{display:none;position:absolute;left:10%;top:10%;z-index:9997;}
+#t{position:absolute;right:10%;top:-100%;
+padding:25px;
+background:white;
+border-top:20px solid darkgrey;
+z-index:9999;
+box-shadow:5px 5px 0 0 #444;
+}
+
+#t,#t *{font-size:15px;
+line-height:20px;}
+
 
 
 section{
-opacity:.9;
-padding:25px;
-background:linear-gradient(45deg,grey,black);
 color:white;
 position:absolute;
-top:0%;
-right:0%;
+top:40%;
+left:40%;
 }
 
 
+mark{background:none;border:1px dotted darkgrey;position:relative;margin-left:-50px;}
+
+
+#l{
+position:fixed;
+otp:0;
+left:0;height:100%;
+width:100%;
+background:black;
+opacity:0;
+z-index:9998;
+}
+
+
+.hlp{cursor:help;}
+
 -->
 </style>
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+
+var b=0;
+
+$(function(){
+
+
+setInterval(function(){$('#t-blink').css({visibility:((++b%2)?'hidden':'visible')})},5e2);
+
+
+
+setTimeout(function(){
+
+
+$('#c').animate({top:'47%',left:'44%'},{duration:1500,complete:function(){
+
+setTimeout(function(){
+$('#g').show();
+$('#t').animate({top:'20%'},{duration:1e3});
+},5e2);
+
+}});
+
+
+},2e3);
+
+
+});
+
+</script>
 
 
 </head>
@@ -67,13 +138,33 @@ right:0%;
 
 <body>
 
+<div id="b"></div>
+
+<img id="c" src="cursor.png" style="height:16px;width:auto;position:absolute;top:-50px;left:-50px;z-index:9999;"/>
+<img id="g" src="1.gif"/>
+
+
+<pre id="t">
+Sam Lyon's Jellygummies on the
+Windows&reg; Desktop
+
+v0.2 &mdash; July 2018
+
+<a href="Jellygummies.zip" title="https://github.com/mntn-dev/Jellygummies/raw/master/Jellygummies.zip">Download</a>
+
+<u class="hlp" title="Drag&amp;drop into .exe or displayed gif">.JGX files:</u>
+<a href="https://github.com/mntn-dev/Jellygummies/raw/master/juicy_models/Animals.jgx"   title="Animals.jgx">Animals</a>
+<a href="https://github.com/mntn-dev/Jellygummies/raw/master/juicy_models/Food.jgx"      title="Food.jgx">Food</a>
+
+<span id="t-blink">|</span>
+</pre>
+
 <section>
-Sam Lyon's <a href="https://www.jellygummies.com" target="_blank">Jellygummies</a><br/>
-on the Windows&reg; Desktop<br/><br/>
-📦 <a href="https://github.com/mntn-dev/Jellygummies/raw/master/Jellygummies.zip" title="~23MB">Download</a><br/>
-(v0.1/Jun 2018)<br/><br/>
-<a href="https://github.com/mntn-dev/Jellygummies/" target="_blank" title="Benjamin Lips (mntn-dev)">@GitHub</a>
+<span id="exe"><img style="height:96px;width:auto;" src="exe.png"/><br/>
+<mark>Jellygummies.exe</mark></span>
 </section>
+<div id="w"><img src="windows.svg" style="position:relative;top:15px;left:15px;height:15px;width:auto;"/></div>
+<div id="l"></div>
 
 </body>
 
