@@ -82,8 +82,9 @@ mark{background:none;border:1px dotted darkgrey;position:relative;margin-left:-5
 
 #l{
 position:fixed;
-otp:0;
-left:0;height:100%;
+top:0;
+left:0;
+height:100%;
 width:100%;
 background:black;
 opacity:0;
@@ -93,6 +94,54 @@ z-index:9998;
 
 .hlp{cursor:help;}
 
+  
+  
+  
+  @keyframes rotating
+	{
+	from
+		{
+		transform: rotate(0deg);
+		-o-transform: rotate(0deg);
+		-ms-transform: rotate(0deg);
+		-moz-transform: rotate(0deg);
+		-webkit-transform: rotate(0deg);
+		}
+	to
+		{
+		transform: rotate(360deg);
+		-o-transform: rotate(360deg);
+		-ms-transform: rotate(360deg);
+		-moz-transform: rotate(360deg);
+		-webkit-transform: rotate(360deg);
+		}
+	}
+@-webkit-keyframes rotating
+	{
+	from
+		{
+		transform: rotate(0deg);
+		-webkit-transform: rotate(0deg);
+		}
+	to
+		{
+		transform: rotate(360deg);
+		-webkit-transform: rotate(360deg);
+		}
+	}
+
+  
+  .rotating
+	{
+	-webkit-animation: rotating 1s linear infinite;
+	-moz-animation: rotating 1s linear infinite;
+	-ms-animation: rotating 1s linear infinite;
+	-o-animation: rotating 1s linear infinite;
+	animation: rotating 1s linear infinite;
+	}
+  
+  
+  
 -->
 </style>
 
@@ -153,8 +202,8 @@ v0.2 &mdash; July 2018
 <a href="https://github.com/mntn-dev/Jellygummies/raw/master/Jellygummies.zip" title="Jellygummies.zip (~13mb)">Download</a>
 
 <u class="hlp" title="Drag&amp;drop into .exe or displayed gif">.JGX files:</u>
-<a href="https://github.com/mntn-dev/Jellygummies/raw/master/juicy_models/Animals.jgx"   title="Animals.jgx">Animals</a>
-<a href="https://github.com/mntn-dev/Jellygummies/raw/master/juicy_models/Food.jgx"      title="Food.jgx">Food</a>
+<img src="jg-jgx.ico" style="height:16px;width:16px;"/><a href="https://github.com/mntn-dev/Jellygummies/raw/master/juicy_models/Animals.jgx"   title="Animals.jgx">Animals</a>
+<img src="jg-jgx.ico" style="height:16px;width:16px;"/><a href="https://github.com/mntn-dev/Jellygummies/raw/master/juicy_models/Food.jgx"      title="Food.jgx">Food</a>
 
 (Note: to assign a filetype icon to
 <em>.jgx</em>, run Jellygummies.exe 'as admin')
@@ -166,7 +215,7 @@ v0.2 &mdash; July 2018
 <span id="exe"><img style="height:96px;width:auto;" src="exe.png"/><br/>
 <mark>Jellygummies.exe</mark></span>
 </section>
-<div id="w"><img src="windows.svg" style="position:relative;top:15px;left:15px;height:15px;width:auto;"/></div>
+<div id="w"><img class="rotating"  src="windows.svg" style="position:relative;top:15px;left:15px;height:15px;width:auto;"/></div>
 <div id="l"></div>
 
 </body>
