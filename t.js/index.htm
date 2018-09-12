@@ -247,7 +247,7 @@ $(function(){
 <dt>repeat:0,</dt>                        <dd>//repeat typing: if TRUE, infinite or N times</dd>
 <dt>tag:'span',</dt>                      <dd>//wrapper tag (.t-container, .t-caret)</dd>
 <dt>pause_on_click:false,</dt>            <dd>//pauses/continues typing on click/tap (elm)</dd>
-<dt>pause_on_tab_switch<br/>:false,</dt>              <dd>/*pauses typing if window is inactive (<a href="https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API" target="_blank">Page Visibility API</a>)*/</dd>
+<dt>pause_on_tab_switch<br/>:false,</dt>  <dd>/*pauses typing if window/tab<br/>is inactive (<a href="https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API" target="_blank">Page Visibility API</a>)*/</dd>
 
 <dt><br/></dt><dd></dd>
 
@@ -258,7 +258,7 @@ $(function(){
 <dt style="width:60%;"><br/>$(elm).t('add',content)<br/>|_ shorthand: $(elm).a(content)<br/><br/>$(elm).t('pause'[,true/false])<br/>|_ shorthand: $(elm).p([true/false])<br/><br/><br/>$(elm).t('beep')<br/>|_ shorthand: $(elm).b()</dt> <dd style="width:25%;">/*Methods:<br/>&#x25b6; adds content<br/>to elm<br/><br/>&#x25b6; pauses typing (toggles if 2nd param omitted)<br/><br/>&#x25b6; manual beepin' (initialised/not-typing)*/</dd>
 <dt><br/><dt><dd></dd>
 <dt style="width:60%;"><br/>$(elm).data().t<br/>$(elm).data().is_typing<br/>$(elm).data().paused</dt>
-<dd style="width:25%;">/*Data/properties:<br/>&#x25b6; TRUE if initialised<br/><span style="visibility:hidden;">&#x25b6; TRUE if</span> typing<br/><span style="visibility:hidden;">&#x25b6; TRUE if</span> paused*/</dd>
+ <dd style="width:25%;">/*Data/properties:<br/>&#x25b6; TRUE if  initialised<br/><span style="visibility:hidden;">&#x25b6; TRUE if</span> |_ typing<br/><span style="visibility:hidden;">&#x25b6; TRUE if</span> |_ paused*/</dd>
 
 
 </dl></div><div id="u" class="bx">
