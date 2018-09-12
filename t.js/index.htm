@@ -10,14 +10,14 @@
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 
 <meta name="robots" content="nosnippet,noarchive,notranslate"/>
-<meta name="keywords" content="jquery,t.js,typewriter,text,javascript,plugin,typography,html tags"/>
+<meta name="keywords" content="jquery,t.js,typewriter,text,javascript,terminal,plugin,typography,html tags"/>
 <meta name="description" content=""/>
   
 
 <meta property="og:type" content="website"/>
 <meta property="og:title" content="t.js"/>
 <meta property="og:url" content="https://mntn-dev.github.io/t.js/"/>
-<meta property="og:description" content="$.Typewriter w/ nice features like HTML support; only 2.9KB (minified+gzipped)"/>
+<meta property="og:description" content="$.Typewriter w/ nice features like HTML support; only 3KB (minified+gzipped)"/>
 <meta property="og:image" content="https://mntn-dev.github.io/t.js/t.js.png"/>
 
 
@@ -132,7 +132,7 @@ li:nth-child(3n){width:75%;margin:50px 0 50px 0;}
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> <!-- v3.3.1 -->
-<script src="https://rawgit.com/mntn-dev/t.js/master/t.min.js"></script>    <!--v1.2-->
+<script src="https://rawgit.com/mntn-dev/t.js/master/t.min.js"></script>    <!--v1.3-->
 
 
 <script type="text/javascript">
@@ -189,6 +189,7 @@ $(function(){
   mistype:4,
   locale:'en',
   tag:'span',
+  pause_on_tab_switch:true,
   init:function(){
   
   $('#__c').animate({width:'1vw'},15e2);
@@ -246,6 +247,7 @@ $(function(){
 <dt>repeat:0,</dt>                        <dd>//repeat typing: if TRUE, infinite or N times</dd>
 <dt>tag:'span',</dt>                      <dd>//wrapper tag (.t-container, .t-caret)</dd>
 <dt>pause_on_click:false,</dt>            <dd>//pauses/continues typing on click/tap (elm)</dd>
+<dt>pause_on_tab_switch:false,</dt>       <dd>//pauses typing if window is inactive (<a href="https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API" target="_blank">Page Visibility API</a>)</dd>
 <dt><br/></dt><dd></dd>
 
 <dt style="width:60%;">init:function(elm){},<br/>typing:function(elm,chr_or_elm,left,total){},<br/>fin:function(elm){}</dt>
@@ -353,10 +355,6 @@ function(){console.log('clicked!');});</code>
 To retain typing acitivity with activated <i class="material-icons">settings</i>pause_on_click
 when clicking specific child elms, just add
 <code style="background:#fff;color:#000;">data-click="1"</code> attribute to 'em
-
-<span class="g">*</span> To pause typing on inactive window/tab, just include:
-  <code>*js* $(window).on('blur focus',function(e){
-  if($(elm).data().is_typing)$(elm).p((e.type=='blur')?true:false);});</code>
 
 </span></div><div id="e" class="bx">
 <ul><li>(Also, see <a href="https://rawgit.com/mntn-dev/t.js/master/demo.htm" target="_blank">demo.htm</a>)</li><li></li><li></li>
@@ -472,14 +470,14 @@ tickr.join(x='&lt;ins&gt;2&lt;/ins&gt;&lt;del&gt;*&lt;/del&gt;')+x,
 </ins>
 
 
-<h1 style="border-bottom:3px solid #0f0;">t.<del>k<ins>1</ins></del>js (v1.2/Sep 10, 2018)</h1>
+<h1 style="border-bottom:3px solid #0f0;">t.<del>k<ins>1</ins></del>js (v1.3/Sep 12, 2018)</h1>
 A <kbd>lightweight</kbd> (~2.9<del>MB<ins>1.5</ins></del>KB gzipped+minified) $.Typewriter script with nice features,<br/><ins><i class="material-icons">star</i></ins>'ed <span id="github-stars"><ins><i class="spnnr material-icons">loop</i></ins></span> times at <a target="_blank" href="https://github.com/mntn-dev/t.js">&#x25b6;Github</a>.
 
 <ins>&copy;2014-2018 &mdash; Mntn&reg; <span class="o">&lt;https://mn.tn/&gt;</span></ins><ins>1</ins>
 <ins>c/o Benjamin Lips <span class="o">&lt;g--[AT]--mn.tn&gt;</span></ins><ins>1</ins>
 <ins>*MIT-Licensed <span class="o">&lt;https://mit-license.org/&gt;</span></ins><ins>1</ins>
 
-<a class="btn" href="https://raw.githubusercontent.com/mntn-dev/t.js/master/t.min.js" target="_blank" title="v1.2"><ins><i class="material-icons">description</i></ins>t.min.js</a>   <a class="btn" href="https://raw.githubusercontent.com/mntn-dev/t.js/master/t.js" target="_blank" title="v1.2"><ins><i class="material-icons">description</i></ins>t.js</a>   <a class="btn" href="https://github.com/mntn-dev/t.js/archive/master.zip" target="_blank" title="includes demo.htm"><ins><i class="material-icons">archive</i></ins>zip bundle</a>
+<a class="btn" href="https://raw.githubusercontent.com/mntn-dev/t.js/master/t.min.js" target="_blank" title="v1.3"><ins><i class="material-icons">description</i></ins>t.min.js</a>   <a class="btn" href="https://raw.githubusercontent.com/mntn-dev/t.js/master/t.js" target="_blank" title="v1.3"><ins><i class="material-icons">description</i></ins>t.js</a>   <a class="btn" href="https://github.com/mntn-dev/t.js/archive/master.zip" target="_blank" title="includes demo.htm"><ins><i class="material-icons">archive</i></ins>zip bundle</a>
 
 
 t.js fully supports <abbr title="Hypertext Markup Language">HTML</abbr>, yet provides special
