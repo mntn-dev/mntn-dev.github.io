@@ -332,6 +332,7 @@ tag-based solution to perform basic editing ops
 <span class="g">*</span> Unset default styles with CSS:
 <code>*css* ins,del,s{text-decoration:none;} kbd{font-family:inherit;}</code>
 
+  
 <span class="g">*</span> To avoid flashing of to-type-content on page load,
 it's recommended to set elm's style to
 <code>*css* {visibility:hidden;} or {display:none;}</code>
@@ -339,6 +340,7 @@ it's recommended to set elm's style to
 <code>*css* display</code> property to <code>*css* inline-block</code>
 to keep caret fitting - if necessary)
 
+  
 <span class="g">*</span> To avoid typing activity slow down on browser
 tab/window switch, just include <a href="https://github.com/turuslan/HackTimer" target="_blank">HackTimer</a> (see <a href="https://github.com/mntn-dev/t.js/issues/1" target="_blank">Issue #1</a>)
 into your page (on top of all other scripts):
@@ -348,6 +350,7 @@ into your page (on top of all other scripts):
 
  Note: You can also force typing activity to
  pause by setting <i class="material-icons">settings</i><code>pause_on_tab_switch</code>
+ 
   
 <span class="g">*</span> Event handlers: Use jQuery's <a href="https://api.jquery.com/on/" target="_blank">.on</a> to have event handlers
 (re)attached:
@@ -355,6 +358,7 @@ into your page (on top of all other scripts):
 <code>*js* $(document).on('click','#typing-elm #child_elm',
 function(){console.log('clicked!');});</code>
 
+  
 <span class="g">*</span> <i class="material-icons">settings</i>pause_on_click and clickable child elms:
 To retain typing acitivity with activated <i class="material-icons">settings</i>pause_on_click
 when clicking specific child elms, just add
