@@ -336,8 +336,10 @@ HTML tag-based solution to perform basic editing ops
   
 <u>Hints / tips</u>
 
-<span class="g">*</span> Unset default styles with CSS:
-<code>*css* ins,del,s{text-decoration:none;} kbd{font-family:inherit;}</code>
+<span class="g">*</span> Unset default/unwantend styles with CSS:
+<code>*css* ins,del{text-decoration:none;}
+      kbd{font-family:inherit;}
+      s{display:none;}</code>
 
   
 <span class="g">*</span> To avoid flashing of to-type-content on page load,
