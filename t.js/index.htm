@@ -431,45 +431,7 @@ typing:function(elm,chr){
 
 
 
-<li></li>
-<li>&lt;span id="s_bar" style="display:block;height:20px;width:0;background-image:linear-gradient(90deg,yellow,gold);"&gt;&lt;/span&gt;
-&lt;a href="https://en.wikipedia.org/wiki/Rick_Rubin" target="_blank"&gt;Rick Rubin&lt;/a&gt; is an American record producer and
-former co-president of &lt;a href="https://en.wikipedia.org/wiki/Columbia_Records" target="_blank"&gt;Columbia Records&lt;/a&gt;.
-&lt;ins&gt;.5&lt;/ins&gt;&lt;ins&gt;&lt;span style="color:gold;"&gt;$&lt;/span&gt; Loading "RickRubinSept09.jpg"&lt;/ins&gt;&lt;ins&gt;2&lt;/ins&gt;
 
-&lt;span id="rr-100" style="background-image:url(https://upload.wikimedia.org/wikipedia/commons/4/43/RickRubinSept09.jpg);background-size:cover;display:inline-block;height:0;width:100px;"&gt;&lt;/span&gt;
-
-
-
-</li>
-
-<li>
-//RickRubin&trade;
-
-$('#rr-100').css({height:0});
-
-$('#demo').t({
-
-speed:20,
-
-typing:function(elm,chr,left,total){
-  $('#s_bar').css({width:(left*100)/total});
-  
-  if(chr.match('rr\-100')){
-   $(elm).p(); //pause
-   $(elm).find('.t-caret').hide();
-   pi=setInterval(function(){
-       (i=$(elm).find('#rr-100')).css({height:'+=10'});
-       if(i.height()==100){
-         $(elm).find('.t-caret').show();
-         $(elm).p();clearInterval(pi);
-         }},4e2,elm,i);
-
-  }
-  
-}
-
-});</li>
 
 <li></li>
 
