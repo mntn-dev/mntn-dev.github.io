@@ -132,7 +132,7 @@ li:nth-child(3n){width:75%;margin:50px 0 50px 0;}
 
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script> <!-- 3.3.1 -->
-<script src="https://cdn.jsdelivr.net/gh/mntn-dev/t.js/t.min.js"></script> <!-- 1.3.1 -->
+<script src="https://cdn.jsdelivr.net/gh/mntn-dev/t.js/t.min.js"></script> <!-- 1.4 -->
 
 
 <script type="text/javascript">
@@ -255,7 +255,7 @@ $(function(){
 <dd style="width:25%;">//Callbacks</dd>
 <dt><br/>});<br/><br/></dt><dd></dd>
 
-<dt style="width:60%;"><br/>$(elm).t('add',content)<br/>|_ shorthand: $(elm).a(content)<br/><br/>$(elm).t('pause'[,true/false])<br/>|_ shorthand: $(elm).p([true/false])<br/><br/><br/>$(elm).t('beep')<br/>|_ shorthand: $(elm).b()</dt> <dd style="width:25%;">/*Methods:<br/>&#x25b6; adds content<br/>to elm<br/><br/>&#x25b6; pauses typing (toggles if 2nd param omitted)<br/><br/>&#x25b6; manual beepin' (initialised/not-typing)*/</dd>
+<dt style="width:60%;"><br/>$(elm).t('add',content)<br/>|_ shorthand: $(elm).a(content)<br/><br/>$(elm).t('pause'[,true/false])<br/>|_ shorthand: $(elm).p([true/false])<br/><br/>$(elm).t('speed',ms)<br/>|_ shorthand: $(elm).s(ms)<br/><br/>$(elm).t('beep')<br/>|_ shorthand: $(elm).b()</dt> <dd style="width:25%;">/*Methods:<br/>&#x25b6; adds content<br/>to elm<br/><br/>&#x25b6; pauses typing (toggles if 2nd param omitted)<br/><br/>&#x25b6; changes typing speed (ms) at runtime<br/><br/>&#x25b6; manual beepin' (initialised/not-typing)*/</dd>
 <dt><br/><dt><dd></dd>
 <dt style="width:60%;"><br/>$(elm).data().t<br/>$(elm).data().is_typing<br/>$(elm).data().paused</dt>
  <dd style="width:25%;">/*Data/properties:<br/>&#x25b6; TRUE if  initialised<br/><span style="visibility:hidden;">&#x25b6; TRUE</span> <i class="material-icons g">subdirectory_arrow_right</i> typing<br/><span style="visibility:hidden;">&#x25b6; TRUE</span> <i class="material-icons g">subdirectory_arrow_right</i> paused*/</dd>
@@ -487,14 +487,14 @@ tickr.join(x='&lt;ins&gt;2&lt;/ins&gt;&lt;del&gt;*&lt;/del&gt;')+x,
 </ins>
 
 
-<h1 style="border-bottom:3px solid #0f0;">t.<del>k<ins>1</ins></del>js (v1.3/Sep 12, 2018)</h1>
-A <kbd>lightweight</kbd> (~2.9<del>MB<ins>1.5</ins></del>KB gzipped+minified) $.Typewriter script with nice features,<br/><ins><i class="material-icons">star</i></ins>'ed <span id="github-stars"><ins><i class="spnnr material-icons">loop</i></ins></span> times at <a target="_blank" href="https://github.com/mntn-dev/t.js">&#x25b6;Github</a>.
+<h1 style="border-bottom:3px solid #0f0;">t.<del>k<ins>1</ins></del>js (v1.4/Dec 10, 2018)</h1>
+A <kbd>lightweight</kbd> (~3.2<del>MB<ins>1.5</ins></del>KB gzipped+minified) $.Typewriter script with nice features,<br/><ins><i class="material-icons">star</i></ins>'ed <span id="github-stars"><ins><i class="spnnr material-icons">loop</i></ins></span> times at <a target="_blank" href="https://github.com/mntn-dev/t.js">&#x25b6;Github</a>.
 
 <ins>&copy;2014-2018 &mdash; Mntn&reg; <span class="o">&lt;https://mn.tn/&gt;</span></ins><ins>1</ins>
 <ins>c/o Benjamin Lips <span class="o">&lt;g--[AT]--mn.tn&gt;</span></ins><ins>1</ins>
 <ins>*MIT-Licensed <span class="o">&lt;https://mit-license.org/&gt;</span></ins><ins>1</ins>
 
-<a class="btn" href="https://raw.githubusercontent.com/mntn-dev/t.js/master/t.min.js" target="_blank" title="v1.3"><ins><i class="material-icons">description</i></ins>t.min.js</a>   <a class="btn" href="https://raw.githubusercontent.com/mntn-dev/t.js/master/t.js" target="_blank" title="v1.3"><ins><i class="material-icons">description</i></ins>t.js</a>   <a class="btn" href="https://github.com/mntn-dev/t.js/archive/master.zip" target="_blank" title="includes demo.htm"><ins><i class="material-icons">archive</i></ins>zip bundle</a>
+<a class="btn" href="https://raw.githubusercontent.com/mntn-dev/t.js/master/t.min.js" target="_blank" title="v1.4"><ins><i class="material-icons">description</i></ins>t.min.js</a>   <a class="btn" href="https://raw.githubusercontent.com/mntn-dev/t.js/master/t.js" target="_blank" title="v1.4"><ins><i class="material-icons">description</i></ins>t.js</a>   <a class="btn" href="https://github.com/mntn-dev/t.js/archive/master.zip" target="_blank" title="includes demo.htm"><ins><i class="material-icons">archive</i></ins>zip bundle</a>
 
 
 t.js fully supports <abbr title="Hypertext Markup Language">HTML</abbr>, yet provides special
