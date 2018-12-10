@@ -283,7 +283,7 @@ $(function(){
       alt.: <code>$(elm).p([bool]);</code>
  |_ pauses typing (toggles if TRUE/FALSE omitted)
 
-<u>&lt;del&gt;, &lt;ins&gt; and &lt;kbd&gt; (<i class="material-icons">arrow_forward</i>Hypertyping Markup Language)</u>
+<u>&lt;del&gt;, &lt;ins&gt;, &lt;kbd&gt; and &lt;s&gt; (<i class="material-icons">arrow_forward</i>Hypertyping Markup Language)</u>
 Unlike other typewriter scripts, t.js provides an easy,
 HTML tag-based solution to perform basic editing ops
 
@@ -327,10 +327,12 @@ HTML tag-based solution to perform basic editing ops
   <i class="material-icons">settings</i>mistype will be set to 10)
 
  <span class="c"><i class="material-icons">restore</i> Speed change</span>
- <code>*html* Yay! &lt;s&gt;10&lt;/s&gt; Fast typing now.</code>
- |_ sets typing speed to 10ms (numeric-filled &lt;s&gt; tag outside &lt;del&gt;)
+  
+  <code>*html* Yay! &lt;s&gt;10&lt;/s&gt; Fast typing now.</code>
+  |_ sets typing speed to 10ms (numeric-filled &lt;s&gt; tag outside &lt;del&gt;)
   (or, via method: <code>*js* $(elm).t('speed',ms)</code> resp. <code>*js* $(elm).s(ms)</code>)
 
+  
 <u>Hints / tips</u>
 
 <span class="g">*</span> Unset default styles with CSS:
@@ -495,15 +497,18 @@ qqqqqqqqqq
 qqqqqqqqqq
 </li>
 
-<li>//speed change example
+<li>
+//speed change example
 
 var new_speed=100;
 
-$(function(){
-
 $('#t').t({
 speed:100,
-typing:function(e){e.s(--new_speed);$('#s').text(Math.max(new_speed,10));}
+typing:
+  function(e){
+   e.s(--new_speed);
+   $('#s').text(Math.max(new_speed,10));
+   }
 });
   
   
