@@ -255,7 +255,7 @@ $(function(){
 <dd style="width:25%;">//Callbacks</dd>
 <dt><br/>});<br/><br/></dt><dd></dd>
 
-<dt style="width:60%;"><br/>$(elm).t('add',content)<br/>|_ shorthand: $(elm).a(content)<br/><br/>$(elm).t('pause'[,true/false])<br/>|_ shorthand: $(elm).p([true/false])<br/><br/>$(elm).t('speed',ms)<br/>|_ shorthand: $(elm).s(ms)<br/><br/>$(elm).t('beep')<br/>|_ shorthand: $(elm).b()</dt> <dd style="width:25%;">/*Methods:<br/>&#x25b6; adds content<br/>to elm<br/><br/>&#x25b6; pauses typing (toggles if 2nd param omitted)<br/><br/>&#x25b6; changes typing speed (ms) at runtime<br/><br/>&#x25b6; manual beepin' (initialised/not-typing)*/</dd>
+<dt style="width:60%;"><br/>$(elm).t('add',content)<br/>|_ shorthand: $(elm).a(content)<br/><br/>$(elm).t('pause'[,true/false])<br/>|_ shorthand: $(elm).p([true/false])<br/><br/><br/>$(elm).t('speed',ms)<br/>|_ shorthand: $(elm).s(ms)<br/><br/>$(elm).t('beep')<br/>|_ shorthand: $(elm).b()</dt> <dd style="width:25%;">/*Methods:<br/>&#x25b6; adds content<br/>to elm<br/><br/>&#x25b6; pauses typing (toggles if 2nd param omitted)<br/><br/>&#x25b6; changes typing speed (ms) at runtime<br/><br/>&#x25b6; manual beepin' (initialised/not-typing)*/</dd>
 <dt><br/><dt><dd></dd>
 <dt style="width:60%;"><br/>$(elm).data().t<br/>$(elm).data().is_typing<br/>$(elm).data().paused</dt>
  <dd style="width:25%;">/*Data/properties:<br/>&#x25b6; TRUE if  initialised<br/><span style="visibility:hidden;">&#x25b6; TRUE</span> <i class="material-icons g">subdirectory_arrow_right</i> typing<br/><span style="visibility:hidden;">&#x25b6; TRUE</span> <i class="material-icons g">subdirectory_arrow_right</i> paused*/</dd>
@@ -285,7 +285,7 @@ $(function(){
 
 <u>&lt;del&gt;, &lt;ins&gt; and &lt;kbd&gt; (<i class="material-icons">arrow_forward</i>Hypertyping Markup Language)</u>
 Unlike other typewriter scripts, t.js provides an easy,
-tag-based solution to perform basic editing ops
+HTML tag-based solution to perform basic editing ops
 
  <span class="c"><i class="material-icons">undo</i> Deleting</span>
 
@@ -306,7 +306,7 @@ tag-based solution to perform basic editing ops
   ---
 
   Note:
-  Except <code>&lt;s&gt; and &lt;ins&gt;</code>, <code>&lt;del&gt;</code> doesn't handle nested HTML (kicked out)
+  Except <code>&lt;s&gt; and &lt;ins&gt;</code>, <code>&lt;del&gt;</code> doesn't handle nested HTML (dropped)
  
 
  <span class="c"><i class="material-icons">watch_later</i> Delaying/Inserting</span>
@@ -326,6 +326,10 @@ tag-based solution to perform basic editing ops
   mistyping extends to entire typing content &mdash; in reverse,
   <i class="material-icons">settings</i>mistype will be set to 10)
 
+ <span class="c"><i class="material-icons">restore</i> Speed change</span>
+ <code>*html* Yay! &lt;s&gt;10&lt;/s&gt; Fast typing now.</code>
+ |_ sets typing speed to 10ms (numeric-filled &lt;s&gt; tag outside &lt;del&gt;)
+  (or, via method: <code>*js* $(elm).t('speed',ms)</code> resp. <code>*js* $(elm).s(ms)</code>)
 
 <u>Hints / tips</u>
 
@@ -480,6 +484,30 @@ tickr.join(x='&lt;ins&gt;2&lt;/ins&gt;&lt;del&gt;*&lt;/del&gt;')+x,
 {speed:20,repeat:true,pause_on_click:true}
 );</li>
 
+<li></li>
+<li>&lt;ins&gt;speed:  &lt;span id="s"&gt;100&lt;/span&gt;&lt;/ins&gt;
+qqqqqqqqqq
+qqqqqqqqqq
+qqqqqqqqqq
+qqqqqqqqqq
+qqqqqqqqqq
+qqqqqqqqqq
+qqqqqqqqqq
+</li>
+
+<li>//speed change example
+
+var new_speed=100;
+
+$(function(){
+
+$('#t').t({
+speed:100,
+typing:function(e){e.s(--new_speed);$('#s').text(Math.max(new_speed,10));}
+});
+  
+  
+</li>
 
 
 
@@ -503,6 +531,7 @@ t.js fully supports <abbr title="Hypertext Markup Language">HTML</abbr>, yet pro
 <span class="g"><ins><i class="material-icons">undo</i></ins></span> de<del>ltng<ins>1.5</ins></del>leti<del>nnnnng<ins>1</ins><s>yellow,#00f</s></del>ng (<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/del" target="_blank">&lt;del&gt;</a>)
 <span class="g"><ins><i class="material-icons">watch_later</i></ins></span> delaying<ins>4</ins> (numeric-filled <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ins" target="_blank">&lt;ins&gt;</a>)
 <span class="g"><ins><i class="material-icons">content_paste</i></ins></span> <ins><u>ins</u>tant</ins><ins>.5</ins> <ins><u>ins</u>erting</ins> (non-numeric &lt;ins&gt;)
+<span class="g"><ins><i class="material-icons">redo</i></ins></span> <s>10</s>change speed at runtime<s>50</s> (numeric-filled &lt;s&gt;)
 
 </section>
 
