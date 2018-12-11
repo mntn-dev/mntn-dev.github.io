@@ -237,7 +237,7 @@ $(function(){
 <dl>
 <dt>$(elm).t([content,]{<br/><br/></dt>  <dd></dd>
 <dt>delay:0,</dt>                         <dd>//start delay (s)</dd>
-<dt>speed:50,</dt>                        <dd>//typing speed (ms)</dd>
+<dt>speed:50,</dt>                        <dd>//typing speed in ms (min: 10)</dd>
 <dt>|_ speed_vary:false,</dt>             <dd>//'human-like'</dd>
 <dt>beep:false,</dt>                      <dd>//beep while typing (<a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API" target="_blank">Web Audio API</a>)</dd>
 <dt>mistype:false,</dt>                   <dd>//mistype rate: 1:N per char</dd>
@@ -256,7 +256,7 @@ $(function(){
 <dd style="width:25%;">//Callbacks</dd>
 <dt><br/>});<br/><br/></dt><dd></dd>
 
-<dt style="width:60%;"><br/>$(elm).t('add',content)<br/>|_ shorthand: $(elm).a(content)<br/><br/>$(elm).t('pause'[,true/false])<br/>|_ shorthand: $(elm).p([true/false])<br/><br/><br/>$(elm).t('speed',ms)<br/>|_ shorthand: $(elm).s(ms)<br/><br/><br/>$(elm).t('beep')<br/>|_ shorthand: $(elm).b()</dt> <dd style="width:25%;">/*Methods:<br/>&#x25b6; adds content<br/>to elm<br/><br/>&#x25b6; pauses typing (toggles if 2nd param omitted)<br/><br/>&#x25b6; changes typing speed (ms) at runtime<br/><br/>&#x25b6; manual beepin' (initialised/not-typing)*/</dd>
+<dt style="width:60%;"><br/>$(elm).t('add',content)<br/>|_ shorthand: $(elm).a(content)<br/><br/>$(elm).t('pause'[,true/false])<br/>|_ shorthand: $(elm).p([true/false])<br/><br/><br/>$(elm).t('speed',ms)<br/>|_ shorthand: $(elm).s(ms)<br/><br/><br/>$(elm).t('beep')<br/>|_ shorthand: $(elm).b()</dt> <dd style="width:25%;">/*Methods:<br/>&#x25b6; adds content<br/>to elm<br/><br/>&#x25b6; pauses typing (toggles if 2nd param omitted)<br/><br/><br/>&#x25b6; changes typing speed (ms) at runtime<br/><br/>&#x25b6; manual beepin' (initialised/not-typing)*/</dd>
 <dt><br/><dt><dd></dd>
 <dt style="width:60%;"><br/>$(elm).data().t<br/>$(elm).data().is_typing<br/>$(elm).data().paused</dt>
  <dd style="width:25%;">/*Data/properties:<br/>&#x25b6; TRUE if  initialised<br/><span style="visibility:hidden;">&#x25b6; TRUE</span> <i class="material-icons g">subdirectory_arrow_right</i> typing<br/><span style="visibility:hidden;">&#x25b6; TRUE</span> <i class="material-icons g">subdirectory_arrow_right</i> paused*/</dd>
@@ -274,7 +274,7 @@ $(function(){
  <code>*js* $(elm).t('text/html to type'[,{...}]);</code>
  |_ types given string (2nd param: settings)
 
-<u>Add content / pause typing</u>
+<br/><br/><u>Add content / pause typing</u>
 
  <code>*js* $(elm).t('add','&lt;br/&gt;new line added.');</code>
       alt.: <code>$(elm).a(...);</code>
@@ -284,7 +284,7 @@ $(function(){
       alt.: <code>$(elm).p([bool]);</code>
  |_ pauses typing (toggles if TRUE/FALSE omitted)
 
-<u>&lt;del&gt;, &lt;ins&gt;, &lt;kbd&gt; and &lt;s&gt; (<i class="material-icons">arrow_forward</i>Hypertyping Markup Language)</u>
+<br/><br/><u>&lt;del&gt;, &lt;ins&gt;, &lt;kbd&gt; and &lt;s&gt; (<i class="material-icons">arrow_forward</i>Hypertyping Markup Language)</u>
 Unlike other typewriter scripts, t.js provides an easy,
 HTML tag-based solution to perform basic editing ops
 
@@ -333,8 +333,9 @@ HTML tag-based solution to perform basic editing ops
   |_ sets typing speed to 10ms (numeric-filled &lt;s&gt; tag outside &lt;del&gt;)
   (or, via method: <code>*js* $(elm).t('speed',ms)</code> resp. <code>*js* $(elm).s(ms)</code>)
 
+ 
   
-<u>Hints / tips</u>
+<br/><br/><u>Hints / tips</u>
 
 <span class="g">*</span> Unset default/unwantend styles with CSS:
 <code>*css* ins,del{text-decoration:none;}
@@ -374,7 +375,7 @@ when clicking specific child elms, just add
 <code style="background:#fff;color:#000;">data-click="1"</code> attribute to 'em
 
   
-<u>How to?</u>
+<br/><br/><u>How to?</u>
   
 <span class="g">*</span> Stop caret blinking / hide caret at run-time
 See <a href="https://github.com/mntn-dev/t.js/issues/5#issuecomment-340739907" target="_blank">Issue #5</a>
@@ -459,12 +460,10 @@ qqqqqqqqqq
 qqqqqqqqqq
 qqqqqqqqqq
 qqqqqqqqqq
-qqqqqqqqqq
-qqqqqqqqqq
 </li>
 
 <li>
-//speed change example
+//speed change
 
 var new_speed=100;
 
@@ -472,7 +471,8 @@ $('#demo').t({
 speed:100,
 typing:
   function(e){
-   e.s(--new_speed);
+   new_speed-=2;
+   e.s(new_speed);
    $('#speed').text(Math.max(new_speed,10));
    }
 });
@@ -495,13 +495,13 @@ A <kbd>lightweight</kbd> (~3.2<del>MB<ins>1.5</ins></del>KB gzipped+minified) $.
 <a class="btn" href="https://raw.githubusercontent.com/mntn-dev/t.js/master/t.min.js" target="_blank"><ins><i class="material-icons">description</i></ins>t.min.js</a>   <a class="btn" href="https://raw.githubusercontent.com/mntn-dev/t.js/master/t.js" target="_blank"><ins><i class="material-icons">description</i></ins>t.js</a>   <a class="btn" href="https://github.com/mntn-dev/t.js/archive/master.zip" target="_blank" title="includes demo.htm"><ins><i class="material-icons">archive</i></ins>zip bundle</a>
 
 
-t.js fully supports <abbr title="Hypertext Markup Language">HTML</abbr>, yet provides special
+t.js fully supports <abbr title="Hypertext Markup Language">HTML</abbr> to-type-content, yet provides special
  features to some tags (<ins><i class="material-icons">arrow_forward</i></ins>Hypertyping Markup Language), like:
 <ins>1.5</ins><span class="g"><ins><i class="material-icons">keyboard</i></ins></span> <kbd>mistyping</kbd> (<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/kbd" target="_blank">&lt;kbd&gt;</a>)
 <span class="g"><ins><i class="material-icons">undo</i></ins></span> de<del>ltng<ins>1.5</ins></del>leti<del>nnnnng<ins>1</ins><s>yellow,#00f</s></del>ng (<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/del" target="_blank">&lt;del&gt;</a>)
 <span class="g"><ins><i class="material-icons">watch_later</i></ins></span> delaying<ins>4</ins> (numeric-filled <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ins" target="_blank">&lt;ins&gt;</a>)
 <span class="g"><ins><i class="material-icons">content_paste</i></ins></span> <ins><u>ins</u>tant</ins><ins>.5</ins> <ins><u>ins</u>erting</ins> (non-numeric &lt;ins&gt;)
-<span class="g"><ins><i class="material-icons">restore</i></ins></span> <s>10</s>change speed at runtime<s>50</s> (numeric-filled &lt;s&gt;)
+<span class="g"><ins><i class="material-icons">restore</i></ins></span> <s>10</s>change speed at <s>200</s>runtime<s>50</s> (numeric-filled <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/s" target="_blank">&lt;s&gt;</a>)
 
 </section>
 
