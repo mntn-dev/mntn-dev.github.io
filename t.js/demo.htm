@@ -3,7 +3,7 @@
 <html>
 <head>
 
-<title>⌨️ t.js/demo.htm</title>
+<title>?? t.js/demo.htm</title>
 <meta charset="utf-8"/>
 <meta name="author" content="Mntn&reg; c/o Benjamin Lips"/>
 
@@ -24,7 +24,11 @@ code{background:yellow;}
 
 .g{color:#0f0;}
 
+/* t.js-related: */
 ins,del{text-decoration:none;}
+s{display:none;}
+kbd{font-family:inherit;}
+ 
 .t-caret{font-size:inherit;color:magenta;}
 
 @media(max-width:800px){#t{width:400px;margin-left:-200px;}}
@@ -47,12 +51,12 @@ $(function(){
   
   delay:2,                   // start delay in seconds [default:0]
   
-  speed:55,                  // typing speed (ms) [default:75]
+  speed:50,                  // typing speed (ms) [default:50]
   speed_vary:false,          // 'human like' speed variation [default:false]
   
   beep:true,                 // beep while typing (Web Audio API) [default:false]
   
-  mistype:false,             // mistype rate: 1:N per char [default:false]
+  mistype:3,                 // mistype rate: 1:N per char [default:false]
   locale:'en',               // keyboard layout (to fit mistype); supported: 'en' (english) or 'de' (german) [default:'en']
   
   caret:'\u2589',            // caret content; can be html too [default:true (\u258e)]
@@ -83,6 +87,7 @@ Methods
   $(elm).t('pause'[,true/false]);  // pauses typing (toggles if 2nd param omitted); shorthand: $(elm).p([true/false]);
   $(elm).t('beep');                // manual beepin' (initialised/not-typing); shorthand: $(elm).b();
   $(elm).t('speed',ms);            // typing speed change at runtime; shorthand: $(elm).s(ms);
+  $(elm).t_off([true]);            // destroys typer's instance; if TRUE, also clears content; shorthand: n/a
 
 Data/properties
 
@@ -94,9 +99,10 @@ Data/properties
 # How to stop caret blinking? (e.g., if finished)
  -> https://github.com/mntn-dev/t.js/issues/5#issuecomment-340739907
 
-# Hint: unset default styles via CSS
- ins,del,s{text-decoration:none;}
+# Hint: unset default/unwatend styles via CSS
+ ins,del{text-decoration:none;}
  kbd{font-family:inherit;}
+ s{display:none;}
  [...]
 
 
@@ -107,7 +113,8 @@ Data/properties
 <del>*</del> -> clears everything typed before (still stored in case of repeating [repeat:N])
 <del>foo</del> -> deletes 'foo' (by default, t.js delays 0.25s before removing)
 <del>foo<ins>2</ins></del> -> custom del-delay: numeric-filled <ins> inside <del>
-<del>select me<s>red,white</s></del> -> text selection: <s> inside <del> (comma seperated background/forground values, or .class name)
+<del>select me<s>red,white</s></del> -> text selection: <s> inside <del> (comma seperated background/forground color values, or .class name)
+(!) Note: except <ins> and <s>, <del> doesn't handle nested html-tags (dropped)
 
 <ins>2.5</ins> -> stops typing for 2.5 seconds (numeric-filled)
 <ins>content to <u>insert</u></ins> -> inserts instantly (non-numeric)
@@ -136,11 +143,11 @@ Data/properties
 ~~~~~~~~
 <ins>1.5</ins>I'm <em><del>r.j<ins>1</ins></del>t.js</em>, a <kbd>lightweight</kbd> jQuery typewriter script.
 I provide full <strong><u title="Hypertext Markup Language">HTML</u> tag</strong> support, also i can:<ins>1</ins>
-<ins><span class="g">*</span> mistype (<code>&lt;kbd&gt;</code>)</ins><ins>.5</ins>
-<ins><span class="g">*</span> delete (<code>&lt;del&gt;</code>)</ins><ins>.5</ins>
-<ins><span class="g">*</span> delay (numeric <code>&lt;ins&gt;</code>)</ins><ins>.5</ins>
-<ins><span class="g">*</span> insert (non-numeric <code>&lt;ins&gt;</code>)</ins><ins>.5</ins>
-<ins><span class="g">*</span> change typing speed (numeric <code>&lt;s&gt;</code>)</ins><ins>.5</ins>
+ <span class="g">*</span> <kbd>mistype</kbd> (<code>&lt;kbd&gt;</code>)<ins>.5</ins>
+ <span class="g">*</span> dele<del>eeeeee</del>te (<code>&lt;del&gt;</code>)</ins><ins>.5</ins>
+ <span class="g">*</span> delay<ins>2</ins> (numeric <code>&lt;ins&gt;</code>)<ins>.5</ins>
+ <span class="g">*</span> <ins>insert</ins> (non-numeric <code>&lt;ins&gt;</code>)<ins>.5</ins>
+ <span class="g">*</span> <s>10</s>change typing <s>150</s>speed<s>50</s> (numeric <code>&lt;s&gt;</code>)<ins>.5</ins>
 <em>&rarr; Hypertypin' Markup Language (HTyML)</em>
  
 <a target="_blank" href="https://mntn-dev.github.io/t.js">Learn more</a>.
