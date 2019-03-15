@@ -1,0 +1,67 @@
+<!doctype html><html>
+
+
+<!--
+https://github.com/mntn-dev/t.js/issues/10
+-->
+
+
+<head>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/gh/mntn-dev/t.js/t.min.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+
+var t_shedule=[],t_shedule_i;
+
+$(function(){
+
+ t_shedule_i=setInterval(function(){
+  if(t_shedule.length&&$('#logger').data('t')/*initialized?*/&&!$('#logger').data('is_typing')/*not typing?*/)
+  $('#logger').a(t_shedule.shift()); //.a() is short-hand for .t('add',..)
+ },10);
+
+
+ new Promise(function(resolve, reject) {
+            $('#logger').t('Starting import function.<br>',{
+              beep: true,
+              speed:20,
+              repeat:false
+            });
+            setTimeout(() => resolve(1), 2000);
+          }).then((result) => {
+            t_shedule.push('Let\'s go\n');
+            //$('#logger').t('add','Let\'s go\n');
+            //alert(result);
+            return result + 2;
+          }).then((result) => {
+             t_shedule.push('some text... R: '+result+'\n');
+            //$('#logger').t('add',result+'\n');
+            //alert(result);
+            return result + 2;
+          }).then((result) => {
+            t_shedule.push('%$@!___'+result+'\n');
+            //$('#logger').t('add',result+'\n');
+            ///alert(result);
+            return result + 2;
+          });
+
+});
+
+/*
+
+[...]
+clearInterval(t_shedule_i);
+
+*/
+
+</script>
+
+</head>
+
+<body>
+<pre id="logger" style="font:1vw/1.5vw monospace;"></pre>
+</body>
+
+</html>
