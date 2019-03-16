@@ -19,7 +19,7 @@ $(function(){
 
  t_shedule_i=setInterval(function(){
   if(t_shedule.length&&$('#logger').data('t')/*initialized?*/&&!$('#logger').data('is_typing')/*not typing?*/)
-  $('#logger').a(t_shedule.shift()); //.a() is short-hand for .t('add',..)
+  $('#logger').a(t_shedule.shift()); //.a() is short-hand for .t('add',to_type_content)
  },10);
 
 
