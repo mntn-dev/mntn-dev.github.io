@@ -507,7 +507,9 @@ $('#demo').t(
   );
 
  $.get('https://api.ipify.org/',
-  function(_){$('#demo_5').q('~ my ip: <mark>'+_+'</mark>\n')}
+  function(_){
+   $('#demo_5').q('~ my ip: &lt;mark&gt;'+_+'&lt;/mark&gt;\n')
+   }
   );
 
 $('#demo_5').q(job(2));
