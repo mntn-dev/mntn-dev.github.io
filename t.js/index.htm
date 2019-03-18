@@ -269,7 +269,7 @@ $(function(){
 <dd style="width:25%;">//Callbacks</dd>
 <dt><br/>});<br/><br/></dt><dd></dd>
 
-<dt style="width:60%;"><br/>$(elm).t('add',content)<br/>|_ shorthand: $(elm).a(content)<br/><br/>$(elm).t('pause'[,true/false])<br/>|_ shorthand: $(elm).p([true/false])<br/><br/><br/>$(elm).t('speed',ms)<br/>|_ shorthand: $(elm).s(ms)<br/><br/><br/>$(elm).t('beep')<br/>|_ shorthand: $(elm).b()<br/><br/><br/>$(elm).t_off([true])</dt> <dd style="width:25%;">/*Methods:<br/>&#x25b6; adds content<br/>to elm<br/><br/>&#x25b6; pauses typing (toggles if 2nd param omitted)<br/><br/>&#x25b6; changes typing<br/>speed (ms) at runtime<br/><br/>&#x25b6; manual beepin' (initialised/not-typing)<br/><br/>&#x25b6; destroys typer's instance (if TRUE, also clears content)*/</dd>
+<dt style="width:60%;"><br/>$(elm).t('add',content)<br/>|_ shorthand: $(elm).a(content)<br/><br/>$(elm).t('queue',content);<br/>shorthand: $(elm).q(content)<br/><br/>$(elm).t('pause'[,true/false])<br/>|_ shorthand: $(elm).p([true/false])<br/><br/><br/>$(elm).t('speed',ms)<br/>|_ shorthand: $(elm).s(ms)<br/><br/><br/>$(elm).t('beep')<br/>|_ shorthand: $(elm).b()<br/><br/><br/>$(elm).t_off([true])</dt> <dd style="width:25%;">/*Methods:<br/>&#x25b6; adds content<br/>to elm<br/><br/>&#x25b6; like 'add', but queued processing (useful for async typing activity)<br/><br/>&#x25b6; pauses typing (toggles if 2nd param omitted)<br/><br/>&#x25b6; changes typing<br/>speed (ms) at runtime<br/><br/>&#x25b6; manual beepin' (initialised/not-typing)<br/><br/>&#x25b6; destroys typer's instance (if TRUE, also clears content)*/</dd>
 <dt><br/><dt><dd></dd>
 <dt style="width:60%;"><br/>$(elm).data().t<br/>$(elm).data().is_typing<br/>$(elm).data().paused</dt>
  <dd style="width:25%;">/*Data/properties:<br/>&#x25b6; TRUE if  initialised<br/><span style="visibility:hidden;">&#x25b6; TRUE</span> <i class="material-icons g">subdirectory_arrow_right</i> typing<br/><span style="visibility:hidden;">&#x25b6; TRUE</span> <i class="material-icons g">subdirectory_arrow_right</i> paused*/</dd>
@@ -498,8 +498,8 @@ typing:
 </ins>
 
 
-<h1 style="border-bottom:3px solid #0f0;">t.<del>k<ins>1</ins></del>js (v1.5.3/Dec 13, 2018)</h1>
-A <kbd>lightweight</kbd> (~3.2<del>GB<ins>1.5</ins></del>KB gzipped+minified) $.Typewriter script with nice features,<br/><ins><i class="material-icons">star</i></ins>'ed <span id="github-stars"><ins><i class="spnnr material-icons">loop</i></ins></span> times at <a target="_blank" href="https://github.com/mntn-dev/t.js">&#x25b6;Github</a>.
+<h1 style="border-bottom:3px solid #0f0;">t.<del>k<ins>1</ins></del>js (v1.5.4/Mar 18, 2019)</h1>
+A <kbd>lightweight</kbd> (~3.4<del>GB<ins>1.5</ins></del>KB gzipped+minified) $.Typewriter script with nice features,<br/><ins><i class="material-icons">star</i></ins>'ed <span id="github-stars"><ins><i class="spnnr material-icons">loop</i></ins></span> times at <a target="_blank" href="https://github.com/mntn-dev/t.js">&#x25b6;Github</a>.
 
 <ins>&copy;2014-2018 &mdash; Mntn&reg; <span class="o"><a class="c-g" style="border:none!important;" href="https://mn.tn/" target="_blank">&lt;https://mn.tn/&gt;</a></span></ins><ins>1</ins>
 <ins>c/o Benjamin Lips <span class="o">&lt;g--[AT]--mn.tn&gt;</span></ins><ins>1</ins>
