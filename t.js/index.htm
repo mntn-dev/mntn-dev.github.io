@@ -499,17 +499,19 @@ typing:
 <li>
 //queue example
   
-var job=function(x){return('~ $=)!@-$@x:@q__: '+(x*x*x));};
+var job=async function(x,y){$('#demo_5').q('~ '+(x+y)+'\n');};
 
 $('#demo').t('logging\n~~~~~~\n',{caret:'#'});
 
- $.get('https://api.ipify.org/',
-  function(_){
-   $('#demo_5').q('~ my ip: &lt;span style="color:cyan;"&gt;'+_+'&lt;/span&gt;\n')
-   }
+$.get('https://api.ipify.org/',
+ function(_){
+  $('#demo_5').q(
+  '~ my ip: &lt;span style="color:cyan;"&gt;'+_+'&lt;/span&gt;\n'
   );
+  }
+);
 
-$('#demo_5').q(job(2)+'\n');
+job(1000,2);
 $('#demo_5').q('~ foo\n');  
 </li>
 
