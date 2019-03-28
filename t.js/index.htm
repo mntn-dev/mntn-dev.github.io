@@ -499,7 +499,10 @@ typing:
 <li>
 //queue example
   
-var job=async function(x,y){wait(1e3);$('#demo').q('~ '+(x+y)+'\n');};
+var job=async function(x,y){
+  wait(1e3);
+  $('#demo').q('~ '+(x+y)+'\n');
+  };
 
 $('#demo_5').t('logging\n~~~~~~\n',{caret:'#'});
 
