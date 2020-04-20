@@ -22,7 +22,7 @@ ins,del{text-decoration:none;}
 -->
 </style>
 
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.0/dist/jquery.min.js"></script> <!-- 3.5.0 -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script> <!-- 3.3.1 -->
 <script src="https://cdn.jsdelivr.net/gh/mntn-dev/t.js/t.min.js"></script>  <!-- 1.5.6 -->
 
 
@@ -32,14 +32,16 @@ ins,del{text-decoration:none;}
 $(function(){
 
 
- var d=$('#d');
+ var d=$('#d'),beep0=!(/beep0/.test(window.location.search));
 
+
+ $('#beep0').text(beep0);
 
  $('#k').t({
   
   delay:3,
   speed:50,
-  beep:true,
+  beep:beep0,
   caret:'\u2588',
   init:function(elm){d.append('\nt.js: init');d.append('\nt.js: delay for 3 secs');},
   typing:function(elm,c,left,total){$('#c').text(c);},
@@ -62,7 +64,7 @@ $(function(){
 
 <div id="d">
 DEBUG (typing: <span id="c" style="display:inline-block;min-width:1.5vw;background:#fff;color:#00f;"> </span>)
-(setup with <code>beep:true</code> [needs a tap on page to sound])
+(setup with <code>beep:<output id="beep0"></output></code> [needs a tap on page to sound if <span style="color:pink;">true</span>])
 </div>
 
 <div id="k">hello. <ins><em>(pause for 2 secs)</em></ins><ins>2</ins>
