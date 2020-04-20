@@ -201,7 +201,7 @@ $(function(){
   speed:50,
   blink:300,
   caret:'<span id="__c" style="display:inline-block;height:1.5vw;width:20vw;background:magenta;"></span>', 
-  beep:true,
+  beep:false, //true,
   mistype:4,
   locale:'en',
   tag:'span',
@@ -410,7 +410,6 @@ See <a href="https://github.com/mntn-dev/t.js/issues/5#issuecomment-340739907" t
 //Pow!
 
 $('#demo').t({
- beep:true,
  caret:'&lt;span style="color:hotpink;"&gt;&bull;&lt;/span&gt;',
  typing:function(elm,chr){
 
