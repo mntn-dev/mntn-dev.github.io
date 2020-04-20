@@ -1,0 +1,75 @@
+<!doctype html>
+
+<html>
+<head>
+
+<title>t.js-debug</title>
+<meta charset="utf-8"/>
+
+<link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet"/>
+
+<style type="text/css">
+<!--
+
+*{cursor:default;font-family:'vt323',monospace;line-height:3.5vw;font-size:3vw;padding:0;outline:0;margin:0;}
+div{white-space:pre-wrap;width::100%;height:auto;min-height:20%;padding:3vw;}
+#d{background:#00f;color:#fff;}
+#k{background:yellow;}
+code{background:pink;color:#00f;}
+
+ins,del{text-decoration:none;}
+.t-caret{color:magenta;}
+-->
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script> <!-- 3.3.1 -->
+<script src="https://cdn.jsdelivr.net/gh/mntn-dev/t.js/t.min.js"></script>  <!-- 1.5.6 -->
+
+
+<script type="text/javascript">
+//<![CDATA[
+
+$(function(){
+
+
+ var d=$('#d');
+
+
+ $('#k').t({
+  
+  delay:3,
+  speed:50,
+  beep:true,
+  caret:'\u2588',
+  init:function(elm){d.append('\nt.js: init');d.append('\nt.js: delay for 3 secs');},
+  typing:function(elm,c,left,total){$('#c').text(c);},
+  fin:function(elm){d.append('\nt.js: fin');}          
+ 
+ });
+
+
+
+});
+
+//]]>
+</script>
+
+
+</head>
+
+
+<body>
+
+<div id="d">
+DEBUG (typing: <span id="c" style="display:inline-block;min-width:1.5vw;background:#fff;color:#00f;"> </span>)
+(setup with <code>beep:true</code> [needs a tap on page to sound])
+</div>
+
+<div id="k">hello. <ins><em>(pause for 2 secs)</em></ins><ins>2</ins>
+run. <span style="color:springgreen;">run.</span> run.
+1 2 3 4 5 6 7 8 9 0
+</div>
+
+</body>
+
+</html>
