@@ -1,0 +1,114 @@
+<!doctype html>
+
+<html>
+<head>
+
+<title>t.js-scroll</title>
+<meta charset="utf-8"/>
+
+<link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet"/>
+
+<style type="text/css">
+<!--
+
+body,html{background:blue;overflow:visible;}
+
+*{cursor:default;font-family:'vt323',monospace;line-height:3.5vw;font-size:3vw;color:#fff;padding:0;outline:0;margin:0;}
+
+
+#scrl{
+white-space:pre-wrap;
+top:0;
+left:0;
+display:none;
+position:relative;
+height:auto;
+}
+
+
+ins{text-decoration:none;}
+.t-caret{color:aquamarine;}
+
+
+-->
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script> <!-- 3.3.1 -->
+<script src="https://cdn.jsdelivr.net/gh/mntn-dev/t.js/t.min.js"></script>  <!-- 1.5.6 -->
+
+
+<script type="text/javascript">
+//<![CDATA[
+
+function s(){$(window).scrollTop($('#scrl').height());}
+
+$(function(){
+
+ $(window).resize(s);
+
+ $('#scrl').t({
+  speed:25,
+  caret:'\u2588',
+  typing:function(elm,c){if(c=='\n')s();}
+  });
+
+});
+
+//]]>
+</script>
+
+
+</head>
+
+
+<body>
+
+
+<div id="scrl">inserting 20 lines:<ins>1.5</ins>
+<ins>0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+0</ins>
+lil' pause.<ins>2</ins>
+------
+A line
+A line
+A line
+A line
+A line
+A line
+A line
+A line
+A line
+A line
+A line
+A line
+A line
+A line
+A line
+A line
+A line
+A last line
+</div>
+
+
+</body>
+
+</html>

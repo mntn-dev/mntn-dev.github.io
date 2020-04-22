@@ -1,0 +1,91 @@
+<!doctype html>
+
+<html>
+<head>
+
+<title>t.js-bottom</title>
+<meta charset="utf-8"/>
+
+<link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet"/>
+
+<style type="text/css">
+<!--
+
+body,html{background:blue;height:100%;}
+*{cursor:default;font-family:'vt323',monospace;line-height:3.5vw;font-size:3vw;color:#fff;padding:0;outline:0;margin:0;}
+
+#bttm{
+display:none;
+white-space:pre-wrap;
+position:absolute;
+left:0;
+bottom:0; /***************/
+width:50%;
+height:auto;
+}
+
+.t-caret{color:magenta;}
+
+-->
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script> <!-- 3.3.1 -->
+<script src="https://cdn.jsdelivr.net/gh/mntn-dev/t.js/t.min.js"></script>  <!-- 1.5.6 -->
+
+
+<script type="text/javascript">
+//<![CDATA[
+
+
+
+$(function(){
+
+ $('#bttm').t({
+  speed:70,
+  caret:'\u2588'
+ });
+
+});
+
+//]]>
+</script>
+
+
+</head>
+
+
+<body>
+
+
+<div id="bttm">
+<ins>2</ins>
+1
+2
+3
+4
+5
+~~~~~~~
+6
+7
+8
+9
+0
+1
+2
+@@@@@$$
+3
+4
+5
+6
+7
+8
+9
+0
+x
+y
+z
+</div>
+
+</body>
+
+</html>
